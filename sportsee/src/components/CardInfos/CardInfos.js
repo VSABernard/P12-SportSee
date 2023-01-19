@@ -1,22 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "../CardInfos/CardInfos.css"
+import calories from "../../assets/calories-icon.png"
+import proteins from "../../assets/protein-icon.png"
+import carbohydrates from "../../assets/carbs-icon.png"
+import lipids from "../../assets/fat-icon.png"
 
-const CardInfos = (props) => {
-  console.log(props)
-  return (
-    <li>
-      <div className={"iconColor " + props.name.name}>
-        <img
-          src={props.name.img}
-          alt={props.name.img}
-          fill={props.name.color}
-        />
-      </div>
-      <div className="textIcon ">
-        <h2>{props.name.quantity}</h2>
-        <h3>{props.name.name}</h3>
-      </div>
-    </li>
-  )
+const CardInfos = ({keyData}) => {
+  const {calorieCount, proteinCount, carbohydrateCount, lipidCount } = keyData
+  console.log (calorieCount)
+
 }
+
 export default CardInfos

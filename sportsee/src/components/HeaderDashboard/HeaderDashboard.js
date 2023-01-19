@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from 'prop-types'
 import '../HeaderDashboard/HeaderDashboard.css'
 
-const HeaderDashboard = ({firstName}) => {
-
-  console.log (firstName)
+const HeaderDashboard = ({userInfos}) => {
+  const {firstName} = userInfos
+  
   return (
     <div className="userGreeting">
       <h1>
