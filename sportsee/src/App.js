@@ -4,10 +4,13 @@ import HeaderNav from '../src/components/HeaderNav/HeaderNav'
 import AsideNav from './components/AsideNAv/AsideNav'
 import HeaderDashboard from './components/HeaderDashboard/HeaderDashboard'
 import CardInfos from './components/CardInfos/CardInfos'
+import DailyBarChart from './components/DailyBarChart/DailyBarChart'
 import {USER_MAIN_DATA} from '../src/data/dataMocker'
+import {USER_ACTIVITY} from '../src/data/dataMocker'
 
 function App() {
   const user = USER_MAIN_DATA[0]
+  const sessions = USER_ACTIVITY[0].sessions
 
   return (
     <div className="App">
@@ -18,7 +21,9 @@ function App() {
           <HeaderDashboard userInfos={user.userInfos}/>          
           <div className='datasChart'>
             <div className='charts'>
-              <div></div>
+              <div>
+                <DailyBarChart sessions={sessions}/>
+              </div>
             </div>
             <ul className="energeticInfos">              
                 <CardInfos key={user.id} keyData={user.keyData} />
