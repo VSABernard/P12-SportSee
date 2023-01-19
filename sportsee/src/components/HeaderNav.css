@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 91px;
+    color: white;
+    background-color: black;
+}
+
+.logo {
+    height: 60px;
+    margin-left: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+}
+.horizontalNav {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.horizontalNav li{
+    cursor: pointer;
+}
+
+.horizontalNav li:hover {
+    transform: scale(1.2);
+    transition-duration: 200ms;
+}
