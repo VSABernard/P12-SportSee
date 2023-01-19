@@ -7,17 +7,20 @@ import CardInfos from './components/CardInfos/CardInfos'
 import {USER_MAIN_DATA} from '../src/data/dataMocker'
 
 function App() {
-  const user = USER_MAIN_DATA[1]
+  const user = USER_MAIN_DATA[0]
 
   return (
     <div className="App">
       <HeaderNav />
       <main className='main'>
         <AsideNav />
-        <section className='dashboard'>
-          <HeaderDashboard userInfos={user.userInfos}/>
+        <section className='dashboard'>          
+          <HeaderDashboard userInfos={user.userInfos}/>          
           <div className='datasChart'>
-            <ul className="elementList">              
+            <div className='charts'>
+              <div></div>
+            </div>
+            <ul className="energeticInfos">              
                 <CardInfos key={user.id} keyData={user.keyData} />
             </ul>
           </div>

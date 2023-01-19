@@ -4,7 +4,7 @@ import "../HeaderNav/HeaderNav.css"
 
 const HeaderNav = () => {
   return (
-    <header>
+    <header className="mainHeader">
       <div className="logo">
         <img src={logo} alt="running man logo" />
       </div>
