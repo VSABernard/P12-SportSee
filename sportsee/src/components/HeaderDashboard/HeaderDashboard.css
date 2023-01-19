@@ -1,0 +1,30 @@
+.userGreeting {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    margin: 80px;
+    font-family: 'Roboto';
+    font-style: normal;
+}
+
+.userGreeting h1 {    
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+    color: #000;
+    margin-bottom: 55px;
+}
+
+.userGreeting span {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 24px;
+    color: #FF0101;
+}
+
+.userGreeting h2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}

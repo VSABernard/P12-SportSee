@@ -1,6 +1,6 @@
-import React from "react";
-import logo from "../../assets/logo.png";
-import "../HeaderNav/HeaderNav.css";
+import React from "react"
+import logo from "../../assets/logo.png"
+import "../HeaderNav/HeaderNav.css"
 
 const HeaderNav = () => {
   return (

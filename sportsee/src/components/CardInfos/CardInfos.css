@@ -1,0 +1,46 @@
+.iconColor {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px;
+    border-radius: 6px;
+}
+
+.foodList  {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.foodList li {
+    display: flex;
+    align-items: center;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+
+}
+
+.foodList h2 {
+    font-size: 20px;
+}
+
+.foodList h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.Calories {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+
+.Proteines {
+    background-color: rgba(74, 184, 255, 0.1);
+}
+
+.Glucides {
+    background-color: rgba(249, 206, 35, 0.1);
+}

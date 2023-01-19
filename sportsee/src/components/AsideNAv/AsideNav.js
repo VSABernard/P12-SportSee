@@ -1,8 +1,8 @@
-import React from "react";
-import yogaIcon from "../../assets/yoga-icon.png";
-import swimmIcon from "../../assets/swimm-icon.png";
-import bikeIcon from "../../assets/bike-icon.png";
-import gymIcon from "../../assets/gym-icon.png";
+import React from "react"
+import yogaIcon from "../../assets/yoga-icon.png"
+import swimmIcon from "../../assets/swimm-icon.png"
+import bikeIcon from "../../assets/bike-icon.png"
+import gymIcon from "../../assets/gym-icon.png"
 import "./AsideNav.css";
 
 const AsideNav = () => {
