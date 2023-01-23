@@ -18,39 +18,3 @@ body {
 .App {
   display: block;
 }
-
-.main {
-  display: flex;
-  flex-direction: row;  
-  height: 100%;
-  background: #fff;
-}
-
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 77px 77px 0;
-}
-
-.datasChart {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-top: 80px;
-  gap: 30px;
-}
-
-.charts {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-right: 30px;
-  flex: 3;
-}
-
-.energeticInfos ul {
-  display: flex;
-  flex-direction: column;
-  width: 260px;
-}

@@ -1,0 +1,36 @@
+.main {
+    display: flex;
+    flex-direction: row;  
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 1024px;
+    margin: 20px auto;
+  }
+  
+  .datasChart {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 80px;
+    gap: 30px;
+  }
+  
+  .charts {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    padding-left: 30px;
+  }
+  
+  .energeticInfos {
+    display: flex;
+    flex-direction: column;
+    width: 258px;
+  }

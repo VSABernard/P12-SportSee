@@ -3,13 +3,14 @@
     justify-content: space-between;
     align-items: center;
     height: 91px;
+    width: 100vw;
     color: white;
     background-color: black;
 }
 
 .logo {
     height: 60px;
-    margin-left: 2rem;
+    margin-left: 30px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -18,6 +19,7 @@
 .logo img {
     height: 60px;
 }
+
 .horizontalNav {
     display: flex;
     width: 100vw;
