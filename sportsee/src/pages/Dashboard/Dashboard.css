@@ -18,19 +18,21 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 80px;
-    gap: 30px;
+    margin-top: 50px;
+    gap: 120px;
   }
   
   .charts {
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 700px;
+    width: 600px;
+    margin-top: -10px;
     padding-left: 30px;
   }
   
   .energeticInfos {
     display: flex;
     flex-direction: column;
-    width: 258px;
+    width: 250px;
   }

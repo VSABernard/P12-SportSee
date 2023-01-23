@@ -1,3 +1,14 @@
-.recharts-responsive-container {
-    width: auto;
+.barChartText {
+    position: absolute;
+    height: 24px;
+    width: 200px;
+    left: 5%;
+    right: 80%;
+    top: calc(50% - 24px/2 - 295px);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    color: #20253A;
 }
