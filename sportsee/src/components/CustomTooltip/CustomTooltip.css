@@ -1,0 +1,13 @@
+.tooltip-activity {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #e60000;
+    padding: 20px;
+    border-style: hidden;
+    list-style: none;
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 24px;
+}
