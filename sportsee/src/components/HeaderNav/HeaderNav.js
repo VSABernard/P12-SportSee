@@ -1,13 +1,11 @@
 import React from "react"
-import logo from "../../assets/logo.png"
+import Logo from "../Logo/Logo"
 import "../HeaderNav/HeaderNav.css"
 
 const HeaderNav = () => {
   return (
     <header className="mainHeader">
-      <div className="logo">
-        <img src={logo} alt="running man logo" />
-      </div>
+      <Logo />
       <ul className="horizontalNav">
         <li>Accueil</li>
         <li>Profil</li>

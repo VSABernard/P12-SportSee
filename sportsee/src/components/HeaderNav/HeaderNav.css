@@ -10,18 +10,6 @@
     background-color: black;
 }
 
-.logo {
-    height: 58px;
-    margin-left: 30px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.logo img {
-    height: 60px;
-}
-
 .horizontalNav {
     display: flex;
     width: 100vw;

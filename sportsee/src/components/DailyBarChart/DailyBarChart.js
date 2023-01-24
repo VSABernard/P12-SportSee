@@ -8,7 +8,7 @@ import CustomTooltip from '../CustomTooltip/CustomTooltip'
 import '../DailyBarChart/DailyBarChart.css'
 
 const DailyBarChart = ({sessions}) => {
-  
+  console.log('session:' + JSON.stringify(sessions))
   sessions = sessions.map(session => {
       session.day = session.day.slice(-1) // only the last character ( day DD of the date YYYY-MM-DD)
       return session 
