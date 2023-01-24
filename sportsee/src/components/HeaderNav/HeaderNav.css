@@ -1,15 +1,17 @@
 .mainHeader {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 80px;
     align-items: center;
-    height: 91px;
     width: 100vw;
+    height: 91px;    
     color: white;
     background-color: black;
 }
 
 .logo {
-    height: 60px;
+    height: 58px;
     margin-left: 30px;
     display: flex;
     justify-content: flex-start;

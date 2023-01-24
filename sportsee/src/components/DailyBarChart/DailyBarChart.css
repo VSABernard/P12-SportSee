@@ -1,8 +1,24 @@
+.barChart {
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 5px;
+    margin-top: -20px;
+}
+
+.recharts-wrapper {
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.recharts-legend-wrapper {
+    padding-top: 15px;
+}
+
 .barChartText {
     position: absolute;
     height: 24px;
     width: 200px;
-    left: 5%;
+    left: 7%;
     right: 80%;
     top: calc(50% - 24px/2 - 295px);
     font-family: 'Roboto';

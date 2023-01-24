@@ -1,0 +1,65 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    margin: 3.5% auto;
+    width: 1024px;
+    gap: 100px;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 10px;
+}
+
+.logo-homepage {
+    display: block;
+    margin: 0 auto 50px;
+}
+
+.logo-homepage img {
+    height: 150px;
+    width: auto;
+}
+
+.bienvenue, .identity {
+    font-family: 'Roboto';
+    font-style: normal;    
+    color: #000000;
+    text-align: center;
+}
+
+.bienvenue {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 24px;
+    margin-bottom: 50px;
+}
+
+.users-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    gap: 100px;
+}
+
+.user-item a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    text-decoration: none;
+}
+
+.user {
+    height: 80px;
+    width: 80px;
+    margin: 0 auto;
+}
+
+.identity {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    color: #FF0101;
+}

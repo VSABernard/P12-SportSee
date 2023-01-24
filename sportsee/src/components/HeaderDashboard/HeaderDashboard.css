@@ -5,7 +5,7 @@
     font-family: 'Roboto';
     font-style: normal;
     margin-top: 30px;
-    padding-left: 30px;
+    margin-bottom: 30px;
     width: 90%;
 }
 
@@ -14,7 +14,7 @@
     font-size: 48px;
     line-height: 24px;
     color: #000;
-    margin-bottom: 55px;
+    margin-bottom: 45px;
 }
 
 .userGreeting span {

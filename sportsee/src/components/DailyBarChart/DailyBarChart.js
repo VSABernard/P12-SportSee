@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 // import AutoSizer from 'react-virtualized-auto-sizer'
-import { BarChart, Bar, Cell, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 import PropTypes from 'prop-types'
 
 import CustomTooltip from '../CustomTooltip/CustomTooltip'
@@ -10,13 +10,13 @@ import '../DailyBarChart/DailyBarChart.css'
 const DailyBarChart = ({sessions}) => {
   
   sessions = sessions.map(session => {
-      session.day = session.day.slice(-1) // only the last 2 characters ( day DD of the date YYYY-MM-DD)
+      session.day = session.day.slice(-1) // only the last character ( day DD of the date YYYY-MM-DD)
       return session 
   })
   
   return (
-    <div style={{ width: '100%', height: 350 }}>
-      <BarChart width={700} height={320} data={sessions} margin={{top: 5, right: 30, left: 0, bottom: 5}}
+    <div className='barChart' style={{ width: '650', height: 350 }}>
+      <BarChart className='barChart-wrapper'  width={600} height={320} data={sessions} margin={{top: 5, right: 30, left: 0, bottom: 5}}
                 wrapperStyle={{left: "0%", right: "20%",top: "0%", bottom: "0%", background: "#FBFBFB", borderRadius: "5px", boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.0212249)"}}>
         <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={false} dot={false} />
         <XAxis dataKey="day" tick={{stroke:"#9B9EAC", strokeWidth:0.5}} tickLine={false} tickSize={14} padding={{bottom:10}} margin={{top: ('50% - 24px/2')}} />
