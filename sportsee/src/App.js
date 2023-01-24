@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
 import Homepage from './pages/Homepage/Homepage'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -10,13 +10,13 @@ import '../src/App.css'
 const App = () => {
 
   return (
-    <Router>
+    <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage/>} /> 
-          <Route path="/" element={<Dashboard/>}/> 
+          <Route path="/Dashboard/:userId" element={<Dashboard/>}/> 
           {/* <Route path="*" element={<Error404/>} /> */}
         </Routes>
-    </Router>
+    </BrowserRouter>
     
   )
 }
