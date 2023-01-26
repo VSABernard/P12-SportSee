@@ -12,6 +12,7 @@ import CardInfos from '../../components/CardInfos/CardInfos'
 import DailyBarChart from '../../components/DailyBarChartGroup/DailyBarChart/DailyBarChart' 
 import SimpleLineChart from '../../components/SimpleLineChartGroup/SimpleLineChart/SimpleLineChart'
 import PerformanceChart from '../../components/PerformanceChartGroup/PerformanceChart/PerformanceChart'
+import ScoreBarChart from '../../components/RadialBarChartGroup/RadialBarChart'
 
 // import {USER_MAIN_DATA} from '../../data/dataMocker'
 // import {USER_ACTIVITY} from '../../data/dataMocker'
@@ -74,7 +75,8 @@ function Dashboard()  {
                   </div>
                   <div className='second-line-charts'>
                       <SimpleLineChart className='simpleChart' sessions={average.sessions}/>  
-                      <PerformanceChart className='simpleChart' datas={performance}/>
+                      <PerformanceChart className='performanceChart' datas={performance}/>
+                      <ScoreBarChart className='scoreChart' user={user} />
                   </div>
                 </div>
                 <ul className="energeticInfos">              
