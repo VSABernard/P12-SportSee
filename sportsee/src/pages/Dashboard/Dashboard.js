@@ -10,7 +10,8 @@ import AsideNav from '../../components/AsideNAv/AsideNav'
 import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard'
 import CardInfos from '../../components/CardInfos/CardInfos'
 import DailyBarChart from '../../components/DailyBarChartGroup/DailyBarChart/DailyBarChart' 
-import SimpleLineChart from '../../components/AsideNAv/SimpleLineChartGroup/SimpleLineChart/SimpleLineChart'
+import SimpleLineChart from '../../components/SimpleLineChartGroup/SimpleLineChart/SimpleLineChart'
+import PerformanceChart from '../../components/PerformanceChartGroup/PerformanceChart/PerformanceChart'
 
 // import {USER_MAIN_DATA} from '../../data/dataMocker'
 // import {USER_ACTIVITY} from '../../data/dataMocker'
@@ -26,9 +27,11 @@ function Dashboard()  {
   const baseUrlUser = `http://localhost:3000/user/${id}`
   const baseUrlActivity = `http://localhost:3000/user/${id}/activity`
   const baseUrlAverage = `http://localhost:3000/user/${id}/average-sessions`
+  const baseUrlPerformance = `http://localhost:3000/user/${id}/performance`
   const [ user, setUser ] = React.useState(null)
   const [ activity, setActivity ] = React.useState(null)
   const [ average, setAverage ] = React.useState(null)
+  const [ performance, setPerformance ] = React.useState(null)
 
   React.useEffect(() => {
     axios.get(baseUrlUser).then((response) => {
@@ -47,10 +50,17 @@ function Dashboard()  {
       setAverage(response.data.data)
     })
   }, [baseUrlAverage])
+
+  React.useEffect(() => {
+    axios.get(baseUrlPerformance).then((response) => {
+      console.log('respon:' + JSON.stringify(response.data.data))
+      setPerformance(response.data.data)
+    })
+  }, [baseUrlPerformance])
   
   return (
     <>
-      {user !=null && activity != null &&
+      {user !=null && activity != null && average != null && performance != null &&
         <div className="App">
           <HeaderNav />
           <main className='main'>
@@ -59,9 +69,12 @@ function Dashboard()  {
               <HeaderDashboard userInfos={user.userInfos}/>          
               <div className='datasChart'>
                 <div className='charts'>
-                  <div>
+                  <div className='first-chart'>
                     <DailyBarChart className='barChart' sessions={activity.sessions}/>
-                    <SimpleLineChart className='simpleChart' sessions={average.sessions}/>
+                  </div>
+                  <div className='second-line-charts'>
+                      <SimpleLineChart className='simpleChart' sessions={average.sessions}/>  
+                      <PerformanceChart className='simpleChart' datas={performance}/>
                   </div>
                 </div>
                 <ul className="energeticInfos">              

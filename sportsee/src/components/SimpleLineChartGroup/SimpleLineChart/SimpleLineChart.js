@@ -1,43 +1,45 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-import '../SimpleLineChart/SimpleLineChart.css'
+import './SimpleLineChart.css'
 
-const SimpleLineChart = (sessions) => {
+const SimpleLineChart = ({sessions}) => {
+   
+    let arrayAverage = []
 
-    let arraySession = []
+    const daysOfWeek = ["L", "M", "M", "J", "V","S", "D"]
+    
 
     sessions = sessions.map(session => {
-        session.day = session.day.slice(1) // only the last character ( day DD of the date YYYY-MM-DD)
-        arraySession.push(session.sessionLength)
+        session.name = daysOfWeek[session.day-1]
+        arrayAverage.push(session.sessionLength)
         return session 
     })
 
     const Title = () => {
-        return <div className="rechart-title">Durée moyenne des sessions</div>
+        return <div className="chart-title">Durée moyenne des sessions</div>
     }
 
     return (
         <div className='simple-line'>
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="60%" aspect={4} >
                 <LineChart data={sessions} margin={{ top: 0, right: 0, left: 0, bottom: 10 }} >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <defs>
+                    {/* <defs>
                         <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="1">
                             <stop offset="5%" stopColor="#FFFFFF" stopOpacity={1} />
                             <stop offset="95%" stopColor="#FFFFFF" stopOpacity={0.4} />
                         </linearGradient>
-                    </defs>
-                    <XAxis  dataKey="day" type="category" 
+                    </defs> */}
+                    <XAxis  dataKey= "name"  
                             padding={{ left: 10, right: 10 }} axisLine={false}
                             interval={"preserveStartEnd"} fontSize={12}
                             tickLine={false} tick={{ fill: "#FFFFFF", opacity: 0.5 }}
                             textAnchor="middle" />
-                    <YAxis  domain={["dataMin -10", "dataMax + 30"]}
+                    <YAxis  domain={["dataMin 0", "dataMax + 60"]}
                             dataKey="sessionLength" hide={true} />
                     <Tooltip />
                     <Legend verticalAlign="top" align="left" content={Title} />
-                    <Line   type="basis" dataKey="sessionLength" stroke="#FFFFFF"
+                    <Line   type="monotone" dataKey="sessionLength" stroke="#FFFFFF"
                             dot={false} strokeWidth={2} activeDot={{ stroke: "white", r: 8 }} />
                 </LineChart>
         </ResponsiveContainer>
