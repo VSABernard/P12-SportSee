@@ -3,13 +3,14 @@ import axios from 'axios'
 import { useParams } from "react-router-dom"
 // import { useAxios } from 'use-axios-client'
 
-import Error404 from '../Error404/Error404'
+// import Error404 from '../Error404/Error404'
 
 import HeaderNav from '../../components/HeaderNav/HeaderNav'
 import AsideNav from '../../components/AsideNAv/AsideNav'
 import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard'
 import CardInfos from '../../components/CardInfos/CardInfos'
-import DailyBarChart from '../../components/DailyBarChart/DailyBarChart'
+import DailyBarChart from '../../components/DailyBarChartGroup/DailyBarChart/DailyBarChart' 
+import SimpleLineChart from '../../components/AsideNAv/SimpleLineChartGroup/SimpleLineChart/SimpleLineChart'
 
 // import {USER_MAIN_DATA} from '../../data/dataMocker'
 // import {USER_ACTIVITY} from '../../data/dataMocker'
@@ -24,23 +25,28 @@ function Dashboard()  {
   const id = params.userId
   const baseUrlUser = `http://localhost:3000/user/${id}`
   const baseUrlActivity = `http://localhost:3000/user/${id}/activity`
+  const baseUrlAverage = `http://localhost:3000/user/${id}/average-sessions`
   const [ user, setUser ] = React.useState(null)
   const [ activity, setActivity ] = React.useState(null)
-
+  const [ average, setAverage ] = React.useState(null)
 
   React.useEffect(() => {
     axios.get(baseUrlUser).then((response) => {
       setUser(response.data.data)
     })
-  }, [])
+  }, [baseUrlUser])
 
   React.useEffect(() => {
     axios.get(baseUrlActivity).then((response) => {
-      console.log('reponse:' + JSON.stringify(response))
       setActivity(response.data.data)
     })
-  }, [])
+  }, [baseUrlActivity])
 
+  React.useEffect(() => {
+    axios.get(baseUrlAverage).then((response) => {
+      setAverage(response.data.data)
+    })
+  }, [baseUrlAverage])
   
   return (
     <>
@@ -55,6 +61,7 @@ function Dashboard()  {
                 <div className='charts'>
                   <div>
                     <DailyBarChart className='barChart' sessions={activity.sessions}/>
+                    <SimpleLineChart className='simpleChart' sessions={average.sessions}/>
                   </div>
                 </div>
                 <ul className="energeticInfos">              
@@ -64,8 +71,10 @@ function Dashboard()  {
             </section>
           </main>
         </div>
-      }
+      }   
     </>
+    
+
   )
 }
 

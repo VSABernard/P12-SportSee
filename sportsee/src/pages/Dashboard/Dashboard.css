@@ -3,37 +3,36 @@
     flex-direction: row;  
     width: 100%;
     height: 100%;
+    margin: auto;
     background: #fff;
   }
   
   .dashboard {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    min-width: 905px;
-    margin: 20px auto;
-    padding-left: 15px;
+    max-width: 90%;
+    margin: 15px auto;
   }
   
   .datasChart {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 50px;
     gap: 10px;
+    
   }
   
   .charts {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   
   .energeticInfos {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 230px;
+    justify-content: flex-start;
   }

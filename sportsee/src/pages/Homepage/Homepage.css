@@ -1,9 +1,10 @@
 .homepage {
     display: flex;
     flex-direction: column;
-    padding: 50px;
-    margin: 3.5% auto;
+    padding: 0 20px;
+    margin: auto;
     width: 1024px;
+    height: 100vh;
     gap: 100px;
     background: #FBFBFB;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
@@ -12,7 +13,7 @@
 
 .logo-homepage {
     display: block;
-    margin: 0 auto 50px;
+    margin: 30px auto 50px;
 }
 
 .logo-homepage img {
@@ -31,15 +32,15 @@
     font-weight: 700;
     font-size: 48px;
     line-height: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .users-block {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: auto;
-    gap: 100px;
+    margin: 0 auto;
+    row-gap: 100px;
 }
 
 .user-item a {

@@ -1,0 +1,9 @@
+.simple-line {
+    background-color: #ff0000;
+    width: 32%;
+    height: 263px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../CustomTooltip/CustomTooltip.css'
+import '../DailyBarChartTooltip/CustomTooltip.css'
 
 const CustomTooltip = ({ active, payload }) => {
     if ( active && payload && payload.length ) {
