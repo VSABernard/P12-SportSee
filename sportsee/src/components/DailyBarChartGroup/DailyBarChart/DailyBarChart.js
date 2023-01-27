@@ -25,9 +25,9 @@ const DailyBarChart = ({sessions}) => {
 
   return (
     <div className='barChart'>
-     <ResponsiveContainer width='100%' aspect={3.5} >  
+     <ResponsiveContainer width='100%' aspect={4} >  
         <BarChart className='barChart-wrapper'data={sessions} 
-                  margin={{top: 20, right: 20, left: 20, bottom: 20}}
+                  margin={{top: 10, right: 20, left: 20, bottom: 40}}
                   wrapperStyle={{left: "0%", right: "20%",top: "0%", bottom: "0%", background: "#FBFBFB", borderRadius: "5px", boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.0212249)"}}>
           <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={false} dot={false} />
           <XAxis  dataKey="day" type='number' tickCount={sessions.length} domain={["dataMin", "dataMax"]} 

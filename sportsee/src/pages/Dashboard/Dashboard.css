@@ -7,32 +7,43 @@
     background: #fff;
   }
   
-  .dashboard {
-    display: flex;
-    flex-direction: column;
-    max-width: 90%;
-    margin: 15px auto;
-  }
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px;
+}
+
+.datasChart {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 30px;
+  gap: 10px;
   
-  .datasChart {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 50px;
-    gap: 10px;
-    
-  }
+}
+
+.charts {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  width: 630px;
+  margin-right: 10px;
+  gap: 50px;
+}
   
-  .charts {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-  }
-  
-  .energeticInfos {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
+.second-line-charts {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  margin-top: 30px;
+}
+
+.energeticInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+}

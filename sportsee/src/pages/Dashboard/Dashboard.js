@@ -54,7 +54,7 @@ function Dashboard()  {
 
   React.useEffect(() => {
     axios.get(baseUrlPerformance).then((response) => {
-      console.log('respon:' + JSON.stringify(response.data.data))
+      
       setPerformance(response.data.data)
     })
   }, [baseUrlPerformance])
@@ -70,9 +70,7 @@ function Dashboard()  {
               <HeaderDashboard userInfos={user.userInfos}/>          
               <div className='datasChart'>
                 <div className='charts'>
-                  <div className='first-chart'>
-                    <DailyBarChart className='barChart' sessions={activity.sessions}/>
-                  </div>
+                  <DailyBarChart className='barChart' sessions={activity.sessions}/>
                   <div className='second-line-charts'>
                       <SimpleLineChart className='simpleChart' sessions={average.sessions}/>  
                       <PerformanceChart className='performanceChart' datas={performance}/>

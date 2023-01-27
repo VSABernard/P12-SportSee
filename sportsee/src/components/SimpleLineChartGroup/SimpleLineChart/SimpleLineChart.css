@@ -1,21 +1,21 @@
 .simple-line {
     background-color: #ff0000;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-    width: 37%;
-    height: 200px;
+    width: 100%;
+    height: 215px;
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 20px;
 }
 
 .simple-line svg.recharts-surface {
-    height: 200px !important;
+    height: 215px !important;
+    padding-top: 0 !important;
 }
 
 .chart-title {
     height: 48px;
-    width: 100%;
-    margin: 30px;
+    width: 60%;
+    margin: 20px 20px 0;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;

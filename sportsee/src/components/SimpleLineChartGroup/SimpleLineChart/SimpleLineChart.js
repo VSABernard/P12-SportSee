@@ -1,6 +1,9 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+import SimpleLineTooltip from '../SimpleLineTooltip/SimpleLineTooltip'
+import SimpleLineCursor from '../SimpleLineCursor/SimpleLineCursor';
+
 import './SimpleLineChart.css'
 
 const SimpleLineChart = ({sessions}) => {
@@ -22,24 +25,21 @@ const SimpleLineChart = ({sessions}) => {
 
     return (
         <div className='simple-line'>
-            <ResponsiveContainer width="60%" aspect={4} >
+            <ResponsiveContainer width="100%" aspect={10} >
                 <LineChart data={sessions} margin={{ top: 0, right: 0, left: 0, bottom: 10 }} >
-                    {/* <defs>
-                        <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#FFFFFF" stopOpacity={1} />
-                            <stop offset="95%" stopColor="#FFFFFF" stopOpacity={0.4} />
-                        </linearGradient>
-                    </defs> */}
-                    <XAxis  dataKey= "name"  
-                            padding={{ left: 10, right: 10 }} axisLine={false}
+                    <XAxis  dataKey= "name"  type='category'
+                            padding={{ left: 5, right: 5 }} axisLine={false}
                             interval={"preserveStartEnd"} fontSize={12}
                             tickLine={false} tick={{ fill: "#FFFFFF", opacity: 0.5 }}
-                            textAnchor="middle" />
+                            tickMargin={80}/>
                     <YAxis  domain={["dataMin 0", "dataMax + 60"]}
                             dataKey="sessionLength" hide={true} />
-                    <Tooltip />
+                    {/* <Tooltip content={<SimpleLineTooltip />} offset={12}
+                            wrapperStyle={{ outline: "none", top: "-40px" }}
+                            isAnimationActive={false}
+                            cursor={<SimpleLineCursor />} /> */}
                     <Legend verticalAlign="top" align="left" content={Title} />
-                    <Line   type="monotone" dataKey="sessionLength" stroke="#FFFFFF"
+                    <Line   type="monotone" dataKey="sessionLength" stroke="#FFFFFF" padding={{top: 60}}
                             dot={false} strokeWidth={2} activeDot={{ stroke: "white", r: 8 }} />
                 </LineChart>
         </ResponsiveContainer>
