@@ -12,7 +12,7 @@ import CardInfos from '../../components/CardInfos/CardInfos'
 import DailyBarChart from '../../components/DailyBarChartGroup/DailyBarChart/DailyBarChart' 
 import SimpleLineChart from '../../components/SimpleLineChartGroup/SimpleLineChart/SimpleLineChart'
 import PerformanceChart from '../../components/PerformanceChartGroup/PerformanceChart/PerformanceChart'
-import ScoreBarChart from '../../components/RadialBarChartGroup/RadialBarChart'
+import ScoreBarChart from '../../components/RadialBarChartGroup/RadialBarChart/RadialBarChart'
 
 // import {USER_MAIN_DATA} from '../../data/dataMocker'
 // import {USER_ACTIVITY} from '../../data/dataMocker'

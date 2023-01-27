@@ -1,0 +1,37 @@
+.radialbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 215px;
+    width: 100%;
+    background: #FBFBFB;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    border-radius: 10px;
+}
+
+.radialbar h3 {
+    position: absolute;
+    z-index: ;
+    left: 30px;
+    top: 10px;
+}
+
+.score-percentage {
+    position: absolute;
+    width: 60px;
+    top: 50%;
+    right: 20%;
+    z-index: 4;
+    font-size: 10;
+}
+
+.score-percentage h4 {
+    font-size: 24px;
+}
+
+.radialbar svg.recharts-surface {
+    height: 200px !important;
+    padding-top: 0;
+    margin-top: 20px;
+}
