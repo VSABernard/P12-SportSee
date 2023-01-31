@@ -27,15 +27,15 @@ const PerformanceChart = ({datas}) => {
     return (
         <div className='performance-chart' >
             <ResponsiveContainer width="100%" height="100%">
-                <RadarChart innerRadius="5%" outerRadius="50%" 
+                <RadarChart cx="50%" cy="50%" innerRadius="5%" outerRadius="60%" 
                             data={performances} 
                             startAngle={-150} endAngle={210}>
                     <PolarGrid radialLines={false} />
-                    <PolarAngleAxis tickLine={false} tickSize={13}
-                                dy={3} tick={{ fill: "#FFFFFF", fontSize: "12px", fontWeight: "500" }} 
+                    <PolarAngleAxis tickLine={false} tickSize={10}
+                                dy={2} tick={{ fill: "#FFFFFF", fontSize: "12px", fontWeight: "500" }} 
                                 dataKey="subject" />
                     <PolarRadiusAxis axisLine={false} tickCount={5} tick={false} />
-                    <Radar dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar dataKey="value" fill="#FF0101" fillOpacity={0.6} />
                 </RadarChart>
             </ResponsiveContainer>
         </div>
@@ -44,9 +44,9 @@ const PerformanceChart = ({datas}) => {
 
 PerformanceChart.propTypes = {
     /**
-     * Array containing objects with data values and french labels of each perfomance's category
+     * Containing objects with data values and french labels of each perfomance's category
      */
-    dataPerf: PropTypes.array,
+    datas: PropTypes.object,
   }
 
 export default PerformanceChart

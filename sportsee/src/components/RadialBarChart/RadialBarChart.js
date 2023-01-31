@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from "prop-types"
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts'
-
 
 import '../RadialBarChart/RadialBarChart.css'
 
@@ -41,5 +41,13 @@ const ScoreBarChart = ({user}) => {
         </div>
     )
 }
+
+ScoreBarChart.propTypes = {
+    /**
+     * Containing user's todayScore data
+     */
+    user: PropTypes.object,
+  }
+  
 
 export default ScoreBarChart

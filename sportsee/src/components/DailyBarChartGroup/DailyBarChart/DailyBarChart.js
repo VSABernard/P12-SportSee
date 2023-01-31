@@ -25,24 +25,23 @@ const DailyBarChart = ({sessions}) => {
 
   return (
     <div className='barChart'>
-     <ResponsiveContainer width='100%' aspect={4} >  
+     <ResponsiveContainer width='100%' height= '100%'>  
         <BarChart className='barChart-wrapper'data={sessions} 
-                  margin={{top: 10, right: 20, left: 20, bottom: 40}}
+                  margin={{top: 160, right: 0, left: 20, bottom: 10}} 
                   wrapperStyle={{left: "0%", right: "20%",top: "0%", bottom: "0%", background: "#FBFBFB", borderRadius: "5px", boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.0212249)"}}>
-          <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={false} dot={false} />
+          <CartesianGrid strokeDasharray="3" horizontal={true} vertical={false} dot={true} />
           <XAxis  dataKey="day" type='number' tickCount={sessions.length} domain={["dataMin", "dataMax"]} 
-                  tick={{fill:"#9B9EAC"}} stroke="#DEDEDE" 
-                  tickLine={false} tickSize={0} 
+                  tick={{fill:"#9B9EAC"}} stroke="#DEDEDE" tickSize={0} 
                   tickMargin={20} padding={{ left: 25, right: 10 }}/>
-          <YAxis  dataKey="kilogram" type="number" tick={{fill: "#9B9EAC"}} 
-                  tickCount={3} ticks={[minWeight - 1, middleWeight, maxWeight + 1]} tickSize={0} orientation='right' 
-                  minTickGap={27} tickMargin={20} tickLine={false} axisLine={false} padding={{bottom: 2, top: 30, left: 10}}/>
-          <Tooltip content={<CustomTooltip />} offset={35}
-                  wrapperStyle={{ outline: "none", top: "-100px" }}
+          <YAxis  dataKey="kilogram" type="number" tick={{fill: "#9B9EAC"}} interval='preserveStart'
+                  tickCount={5} ticks={[minWeight - 1, middleWeight, maxWeight + 1]} tickSize={1} orientation='right' 
+                  minTickGap={0} tickMargin={20} tickLine={false} axisLine={false} padding={{bottom: 2, top: 30, left: 10}}/>
+          <Tooltip content={<CustomTooltip /> } offset={35}
+                  wrapperStyle={{ outline: "none", top: "-70px" }}
                   allowEscapeViewBox={{ x: false, y: true }}
-                  isAnimationActive={false}/> 
+                  isAnimationActive={false}/>  
           <Legend content={<DailyBarChartLegend />} iconSize={8} 
-                  verticalAlign='top' height={24} width={277}/>
+                  verticalAlign='top' align='right' height={24} />
           <Bar    dataKey="kilogram" name="Poids (kg)" 
                   fill="#282D30" barSize={10} radius= {[5, 5, 0, 0]} />
           <Bar    dataKey="calories" name="Calories brulées (kCal)" 

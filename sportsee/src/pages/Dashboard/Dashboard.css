@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;  
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: auto;
     background: #fff;
   }
@@ -10,8 +10,11 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 20px;
+  justify-content: center;
+  width: 1024px;
+  height: 100vh;
+  margin: 40px auto 0;
+  padding: 20px;
 }
 
 .datasChart {
@@ -19,7 +22,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: 30px;
+  margin-top: 40px;
   gap: 10px;
   
 }
@@ -31,14 +34,13 @@
   flex: 3;
   width: 630px;
   margin-right: 10px;
-  gap: 50px;
 }
   
 .second-line-charts {
   display: grid;
-  gap: 1em;
+  gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .energeticInfos {

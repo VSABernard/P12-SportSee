@@ -16,7 +16,7 @@ const HeaderDashboard = ({userInfos}) => {
 }
 
 HeaderDashboard.propTypes = {
-  firstName : PropTypes.string,
+  userInfos : PropTypes.object,
 }
 
 export default HeaderDashboard

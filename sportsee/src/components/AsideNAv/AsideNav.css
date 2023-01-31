@@ -1,14 +1,18 @@
-.iconNavList {
-    position: relative;
+.iconNavList {    
+    background-color: black;
+    width: 117px;
+    height: 100%;
+    margin-top: -10px;
+    padding-top: 200px;
+}
+
+.iconNav-block {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: black;
-    width: 117px;
-    height: 100vh;
-    gap: 20px;  
-    padding-top: 165px;
+    gap: 20px;
+    margin-top: 50px;
 }
 
 .iconNav {
@@ -37,5 +41,6 @@ p.copyright {
     color: #FFFFFF;
     transform: rotate(-90deg);
     width: 140px;
-    margin-top: 140px;
+    margin-top: 155px;
+    margin-left: -10px;
 }

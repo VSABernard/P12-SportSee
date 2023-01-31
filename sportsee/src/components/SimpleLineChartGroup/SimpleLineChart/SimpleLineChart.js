@@ -1,8 +1,10 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from "prop-types"
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 import SimpleLineTooltip from '../SimpleLineTooltip/SimpleLineTooltip'
-import SimpleLineCursor from '../SimpleLineCursor/SimpleLineCursor';
+import SimpleLineCursor from '../SimpleLineCursor/SimpleLineCursor'
+
 
 import './SimpleLineChart.css'
 
@@ -10,8 +12,7 @@ const SimpleLineChart = ({sessions}) => {
    
     let arrayAverage = []
 
-    const daysOfWeek = ["L", "M", "M", "J", "V","S", "D"]
-    
+    const daysOfWeek = ["L", "M", "M", "J", "V","S", "D"]    
 
     sessions = sessions.map(session => {
         session.name = daysOfWeek[session.day-1]
@@ -25,27 +26,35 @@ const SimpleLineChart = ({sessions}) => {
 
     return (
         <div className='simple-line'>
-            <ResponsiveContainer width="100%" aspect={10} >
-                <LineChart data={sessions} margin={{ top: 0, right: 0, left: 0, bottom: 10 }} >
+            {/* <ResponsiveContainer width="100%" aspect={10} > */}
+                <LineChart width={250} height={215} 
+                            data={sessions} margin={{ top: -40, right: 0, left: 0, bottom: 0 }} >
                     <XAxis  dataKey= "name"  type='category'
-                            padding={{ left: 5, right: 5 }} axisLine={false}
+                            padding={{ left: 10, right: 10 }} axisLine={false}
                             interval={"preserveStartEnd"} fontSize={12}
                             tickLine={false} tick={{ fill: "#FFFFFF", opacity: 0.5 }}
-                            tickMargin={80}/>
-                    <YAxis  domain={["dataMin 0", "dataMax + 60"]}
+                            tickMargin={20} height={60}/>
+                    <YAxis  domain={["dataMin -5", "dataMax + 5"]}
                             dataKey="sessionLength" hide={true} />
-                    {/* <Tooltip content={<SimpleLineTooltip />} offset={12}
+                    <Tooltip content={<SimpleLineTooltip />} offset={5}
                             wrapperStyle={{ outline: "none", top: "-40px" }}
-                            isAnimationActive={false}
-                            cursor={<SimpleLineCursor />} /> */}
+                            isAnimationActive={false} cursor={<SimpleLineCursor />} /> 
                     <Legend verticalAlign="top" align="left" content={Title} />
-                    <Line   type="monotone" dataKey="sessionLength" stroke="#FFFFFF" padding={{top: 60}}
-                            dot={false} strokeWidth={2} activeDot={{ stroke: "white", r: 8 }} />
-                </LineChart>
-        </ResponsiveContainer>
+                    <Line   type="monotone" dataKey="sessionLength" stroke="#FFFFFF" padding={{top: 0}}
+                            dot={false} strokeWidth={2} activeDot={{ stroke: "white", r: 4 }} />
+                </LineChart> 
+               
+                {/* </ResponsiveContainer>*/}
       </div>
     )
 }
+
+SimpleLineChart.propTypes = {
+    /**
+     * Array containing user sessions duration's data for each week's day
+     */
+    sessions: PropTypes.array,
+  }
 
 export default SimpleLineChart
   
