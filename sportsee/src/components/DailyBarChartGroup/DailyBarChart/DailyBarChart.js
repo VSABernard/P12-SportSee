@@ -9,19 +9,18 @@ import DailyBarChartCursor from '../DailyBarChartCursor/DailyBarChartCursor'
 import '../DailyBarChart/DailyBarChart.css'
 
 /**
- * Component React which display the bar chart of user's daily activities
+ * Component React that displays the bar chart of user's daily activities
  * @component
- * @param {Array} sessions 
- * @returns Bar chart of user's daily activities
+ * @param {Array} sessions Daily activity's session
  */
-
 const DailyBarChart = ({sessions}) => {
   
   /**
-   * Collect the 
-   * @type {array}
+   * Collect the array of user's weight
+   * @inner
+   * @constant
+   * @type {Array}
    */
-
   let arrayWeight = []
 
   sessions = sessions.map(session => {
@@ -30,8 +29,23 @@ const DailyBarChart = ({sessions}) => {
       return session 
   })
 
+  /**
+   * Collect the minimal data weight value to define BarChart's ticks value
+   * @inner
+   * @type {number}
+   */
   let minWeight = sessions[0].kilogram
+
+  /**
+   * Collect the maximal data weight value to define BarChart's ticks value
+   * @type {number}
+   */
   let maxWeight = sessions[sessions.length - 1].kilogram
+
+  /**
+   * Calculate the average data weight value to define BarChart's ticks value
+   * @type {number}
+   */
   let middleWeight = minWeight + (maxWeight - minWeight) / 2
 
   return (
@@ -52,7 +66,7 @@ const DailyBarChart = ({sessions}) => {
           <YAxis dataKey="kilogram" type="number" hide={true}
                 yAxisId="left" orientation="left" tickCount={3} 
                 domain={["dataMin - 1", (dataMax) => dataMax + 10]} /> 
-          <Tooltip content={<CustomTooltip /> } offset={25}
+          <Tooltip content={<CustomTooltip /> } offset={45}
                 wrapperStyle={{ outline: "none", top: "-170px" }}
                 allowEscapeViewBox={{ x: false, y: true }}
                 cursor={<DailyBarChartCursor />} isAnimationActive={false}/>  
@@ -70,8 +84,8 @@ const DailyBarChart = ({sessions}) => {
    
 export default DailyBarChart
 
- /* 
- Array containing user activity data (weight and calories) for each day
+/**
+ * Array containing user activity data (weight and calories) for each day
  */
 DailyBarChart.propTypes = {
     sessions: PropTypes.array,

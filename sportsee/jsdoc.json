@@ -1,12 +1,10 @@
 {
     "plugins": ["plugins/markdown"],
-    "recurseDepth": 10,
     "source": {
         "include": ["src"],
         "includePattern": ".js$",
         "excludePattern": "(nodes_modules/|docs)"
     },
-    "sourceType": "module",
     "tags": {
         "allowUnknownTags": true,
         "dictionaries": ["jsdoc","closure"]
@@ -17,6 +15,7 @@
     },
     "opts": {
         "recurse": true,
-        "destination": "./docs/"
+        "destination": "./docs/",
+        "template": "custom-template"
     }
 }

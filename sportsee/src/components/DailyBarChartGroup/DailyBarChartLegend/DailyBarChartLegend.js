@@ -3,6 +3,11 @@ import PropTypes from "prop-types"
 
 import '../DailyBarChartLegend/DailyBarChartLegend.css'
 
+/**
+ * Component React that displays the bar chart's legend 
+ * @component
+ * @param {Array} payload The source data of the content to be displayed in the legend 
+ */
 const DailyBarChartLegend = ({ payload }) => {
   return (
     <figcaption className="barChart-header">

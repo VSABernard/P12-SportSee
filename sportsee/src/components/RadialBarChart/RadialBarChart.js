@@ -4,9 +4,20 @@ import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from '
 
 import '../RadialBarChart/RadialBarChart.css'
 
+/**
+ * Component React that displays the bar chart of user's average score
+ * @param {Object} user The value of average score 
+ */
 const ScoreBarChart = ({user}) => {
     
+    /**
+     * 
+     */
     let datas = []
+
+    /**
+     * 
+     */
     let score = 0
 
     if(user['score'] != null) {
@@ -15,6 +26,10 @@ const ScoreBarChart = ({user}) => {
     if(user['todayScore'] != null){
         score = user.todayScore
     }
+
+    /**
+     * Retrieve user score and convert it to whole number without decimals
+     */
     let data = {
         value : score*100  
     }

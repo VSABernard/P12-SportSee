@@ -6,7 +6,6 @@ import "../HeaderNav/HeaderNav.css"
 /**
  * Component React which display the navigation's buttons on the header
  * @component
- * @returns Component of header's navigation 
  */
 
 const HeaderNav = () => {

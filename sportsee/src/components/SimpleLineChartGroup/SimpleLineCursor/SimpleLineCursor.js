@@ -2,6 +2,11 @@ import React from "react";
 import { Rectangle } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Component React that customize the cursor of SimpleLineChart displayed in hover
+ * @component
+ * @param {Array} points Recharts props value containing 'x' and 'y' coordinates for lines points
+ */
 const SimpleLineCursor = ({ points }) => {
   return (
     <Rectangle

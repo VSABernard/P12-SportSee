@@ -2,6 +2,11 @@ import React from "react"
 import PropTypes from 'prop-types'
 import '../HeaderDashboard/HeaderDashboard.css'
 
+/**
+ * Component React that displays the dashboard greetings
+ * @component
+ * @param {Object} userInfos User's firstname and lastname
+ */
 const HeaderDashboard = ({userInfos}) => {
   const {firstName} = userInfos
   

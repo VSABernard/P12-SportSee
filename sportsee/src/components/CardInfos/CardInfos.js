@@ -9,10 +9,9 @@ import carbohydrates from "../../assets/carbs-icon.png"
 import lipids from "../../assets/fat-icon.png"
 
 /**
- * Component React which display the key information of a user in the form of a card
+ * Component React that displays the key information of a user in the form of a card
  * @component
- * @param {object} keyData user's key informations 
- * @returns Card of user's key information
+ * @param {Object} keyData User's key informations of health
  */
 
 const CardInfos = ({keyData}) => {

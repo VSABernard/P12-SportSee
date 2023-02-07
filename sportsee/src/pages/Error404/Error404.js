@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
 import '../Error404/Error404.css'
 
+/**
+ * Component React that displays the page Error 404
+ * @component 
+ */
 function Error404() {
   return (
     <div> 

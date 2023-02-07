@@ -3,6 +3,10 @@ import { Link } from "react-router-dom"
 import logo from "../../assets/logo.png"
 import "../Logo/Logo.css"
 
+/**
+ * Component React that displays the logo of Sportsee
+ * @component 
+ */
 const Logo = () => {
   return (    
     <Link className="logo" to="/" >

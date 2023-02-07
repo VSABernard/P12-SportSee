@@ -7,9 +7,8 @@ import gymIcon from "../../assets/gym-icon.png"
 import "./AsideNav.css"
 
 /**
- * Component React which display vertical navigation bar with icons and copyright
+ * Component React that displays vertical navigation bar with icons and copyright
  * @component
- * @returns Component of vertical navigation
  */
 
 const AsideNav = () => {

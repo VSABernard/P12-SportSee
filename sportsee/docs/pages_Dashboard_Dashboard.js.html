@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Dashboard/Dashboard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Dashboard/Dashboard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useParams } from "react-router-dom"
+
+import Loader from '../../components/Loader/Loader'
+import Error404 from '../Error404/Error404'
+
+import HeaderNav from '../../components/HeaderNav/HeaderNav'
+import AsideNav from '../../components/AsideNAv/AsideNav'
+import HeaderDashboard from '../../components/HeaderDashboard/HeaderDashboard'
+import CardInfos from '../../components/CardInfos/CardInfos'
+import DailyBarChart from '../../components/DailyBarChartGroup/DailyBarChart/DailyBarChart' 
+import SimpleLineChart from '../../components/SimpleLineChartGroup/SimpleLineChart/SimpleLineChart'
+import PerformanceChart from '../../components/PerformanceChart/PerformanceChart'
+import ScoreBarChart from '../../components/RadialBarChart/RadialBarChart'
+
+import '../Dashboard/Dashboard.css'
+
+/**
+ * Component React that displays the dashboard's page of the website
+ * @component 
+ */
+function Dashboard()  {
+
+  useEffect(() => {
+    window.scrollTo(0,0)                                         /* On load, the page is displayed at its top */  
+  })
+
+  const params = useParams()
+  const id = params.userId
+
+  const [isLoading, setIsLoading] = useState(true) 
+  const [errorMessage, setErrorMessage] = useState("")
+  const [counterLoading, setCounterLoading] = useState (0)
+
+  const baseUrlUser = `http://localhost:3000/user/${id}`
+  const baseUrlActivity = `http://localhost:3000/user/${id}/activity`
+  const baseUrlAverage = `http://localhost:3000/user/${id}/average-sessions`
+  const baseUrlPerformance = `http://localhost:3000/user/${id}/performance`
+  
+  const [ user, setUser ] = React.useState(null)
+  const [ activity, setActivity ] = React.useState(null)
+  const [ average, setAverage ] = React.useState(null)
+  const [ performance, setPerformance ] = React.useState(null)
+
+  /*
+  * To retrieve the URLs to access the data via the corresponding route
+  * Error handling is handled by the CATCH at the promise level
+  */
+
+  React.useEffect(() => {   
+    let timer = null
+
+    axios.get(baseUrlUser)
+      .then((response) => {
+        timer = setTimeout(() => {
+          setUser(response.data.data)
+          setCounterLoading((counterLoading)=>counterLoading+1)
+        }, 1000)})
+
+      .catch((error) => {       
+        setErrorMessage('Error on GET user:', error)
+        setIsLoading(false)
+        console.error('Error on GET user:', error)
+      })
+
+      return () => clearTimeout(timer)
+  }, [baseUrlUser])
+
+  React.useEffect(() => {
+    axios.get(baseUrlActivity)
+      .then((response) => {      
+        setCounterLoading((counterLoading)=>counterLoading+1)
+        setActivity(response.data.data)})  
+
+      .catch((error) => {        
+        setErrorMessage('Error on GET activity:', error)
+        setIsLoading(false)
+        console.error('Error on GET activity:', error)
+      })
+  }, [baseUrlActivity])
+
+  React.useEffect(() => {
+    axios.get(baseUrlAverage)
+    .then((response) => {
+      setCounterLoading((counterLoading)=>counterLoading+1)
+      setAverage(response.data.data)})
+
+      .catch((error) => {
+        setErrorMessage('Error on GET average:', error)
+        setIsLoading(false)        
+        console.error('Error on GET average:', error)
+      })
+  }, [baseUrlAverage])
+
+  React.useEffect(() => {
+    axios.get(baseUrlPerformance)
+    .then((response) => {  
+      setCounterLoading((counterLoading)=>counterLoading+1)
+      setPerformance(response.data.data)})
+
+      .catch((error) => {        
+        setErrorMessage('Error on GET performance:', error)
+        setIsLoading(false)
+        console.error('Error on GET performance:', error)
+      })
+  }, [baseUrlPerformance])
+
+  React.useEffect(() => {
+    if(counterLoading > 3){
+      setIsLoading(false)
+    }
+  },[counterLoading])
+ 
+  if(errorMessage){
+    return (&lt;Error404 />)
+  }
+  if(isLoading){
+    return (&lt;Loader />)
+  } else {
+  return (
+  &lt;>
+    {
+      &lt;div className="App">
+        &lt;HeaderNav />
+        &lt;main className='main'>
+          &lt;AsideNav />
+          &lt;section className='dashboard'>          
+            &lt;HeaderDashboard userInfos={user.userInfos}/>          
+            &lt;div className='datasChart'>
+              &lt;div className='charts'>
+                &lt;DailyBarChart className='barChart' sessions={activity.sessions}/>
+                &lt;div className='second-line-charts'>
+                    &lt;SimpleLineChart className='simpleChart' sessions={average.sessions}/>  
+                    &lt;PerformanceChart className='performanceChart' datas={performance}/>
+                    &lt;ScoreBarChart className='scoreChart' user={user} />
+                &lt;/div>
+              &lt;/div>
+              &lt;ul className="energeticInfos">              
+                  &lt;CardInfos key={user.id} keyData={user.keyData} />
+              &lt;/ul>
+            &lt;/div>
+          &lt;/section>
+        &lt;/main>
+      &lt;/div>
+    }   
+  &lt;/> )}
+}
+
+export default Dashboard</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Sportsee</a></h2><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

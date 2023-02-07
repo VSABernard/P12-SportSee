@@ -4,8 +4,18 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 
 import '../PerformanceChart/PerformanceChart.css'
 
+/**
+ * Component React that displays the radar chart of user's performance
+ * @conmponent
+ * @param {Object} datas The value of each performance's type 
+ */
 const PerformanceChart = ({datas}) => {
-  
+   
+    /**
+     * List of labels in french for each perfomance's category
+     * @constant
+     * @type {Object}
+     */
     const types = {
         1 : 'Cardio',
         2 : 'Energie',
