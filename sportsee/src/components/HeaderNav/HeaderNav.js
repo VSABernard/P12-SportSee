@@ -3,6 +3,12 @@ import { NavLink } from "react-router-dom"
 import Logo from "../Logo/Logo"
 import "../HeaderNav/HeaderNav.css"
 
+/**
+ * Component React which display the navigation's buttons on the header
+ * @component
+ * @returns Component of header's navigation 
+ */
+
 const HeaderNav = () => {
   return (
     <header className="mainHeader">
@@ -10,7 +16,7 @@ const HeaderNav = () => {
       <ul className="horizontalNav">
         <NavLink className={'navHeader'} to='/'> Accueil </NavLink>
         <NavLink className={'navHeader'} to=' '> Profil </NavLink>
-        <NavLink className={'navHeader'} to=' '>Réglage </NavLink>
+        <NavLink className={'navHeader'} to=' '> Réglage </NavLink>
         <NavLink className={'navHeader'} to=' '> Communauté </NavLink>
       </ul>
     </header>

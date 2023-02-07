@@ -4,7 +4,13 @@ import yogaIcon from "../../assets/yoga-icon.png"
 import swimmIcon from "../../assets/swimm-icon.png"
 import bikeIcon from "../../assets/bike-icon.png"
 import gymIcon from "../../assets/gym-icon.png"
-import "./AsideNav.css";
+import "./AsideNav.css"
+
+/**
+ * Component React which display vertical navigation bar with icons and copyright
+ * @component
+ * @returns Component of vertical navigation
+ */
 
 const AsideNav = () => {
   return (
@@ -24,8 +30,7 @@ const AsideNav = () => {
         </NavLink>
       </ul>
       <p className="copyright">Copyright, SportSee 2020</p>
-    </div>    
-    
+    </div>        
   )
 }
 

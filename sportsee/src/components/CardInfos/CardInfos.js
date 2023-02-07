@@ -8,7 +8,21 @@ import proteins from "../../assets/protein-icon.png"
 import carbohydrates from "../../assets/carbs-icon.png"
 import lipids from "../../assets/fat-icon.png"
 
+/**
+ * Component React which display the key information of a user in the form of a card
+ * @component
+ * @param {object} keyData user's key informations 
+ * @returns Card of user's key information
+ */
+
 const CardInfos = ({keyData}) => {
+
+  /**
+   * Constant inside keyData
+   * @constant
+   * @type {number}
+   */
+
   const {calorieCount, proteinCount, carbohydrateCount, lipidCount } = keyData
 
   return (
