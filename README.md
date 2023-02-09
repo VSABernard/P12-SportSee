@@ -9,7 +9,7 @@
 
 ![logo](/sportsee/docs/assets/logo.png)
 
-## Projet 12 - Développer un tableau de bord d'analytics avec Reeact
+## Project 12 - Develop an analytics dashboard with React
 ****
 ### **_Presentation_**
  Sportsee is a sports application that allows its users to follow their number of sessions performed and their number of calories burned.
