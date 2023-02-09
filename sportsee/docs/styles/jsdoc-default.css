@@ -356,7 +356,3 @@ tr > th:last-child { border-right: 1px solid #ddd; }
 .disabled {
     color: #454545;
 }
-
-#logo {
-    margin-bottom: 60px;
-}

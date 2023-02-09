@@ -10,6 +10,7 @@ import '../Homepage/Homepage.css'
 /**
  * Component React that displays the homepage of the website for the log in,
  * and for the moment it contains only two users' links which are connected by their specific id
+ * @component
  * @param {Object} userInfos User's informations  
  */
 const Homepage = (userInfos) => {

@@ -17,8 +17,8 @@ import ScoreBarChart from '../../components/RadialBarChart/RadialBarChart'
 import '../Dashboard/Dashboard.css'
 
 /**
- * Component React that displays the dashboard's page of the website
- * @component 
+ * Function React that displays the dashboard's page of the website
+ * @function 
  */
 function Dashboard()  {
 

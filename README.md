@@ -1,4 +1,3 @@
-![logo](../src/assets/logo.png)
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -8,11 +7,12 @@
 ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
+![logo](/sportsee/docs/assets/logo.png)
 
 ## Projet 12 - Développer un tableau de bord d'analytics avec Reeact
 ****
 ### **_Presentation_**
-Sportsee is a sports application that allows its users to follow their number of sessions performed and their number of calories burned.
+ is a sports application that allows its users to follow their number of sessions performed and their number of calories burned.
 ###  **_Prerequisites_**
 * [NodeJS (**version 16.15.0**)](https://nodejs.org/en/)
 * [NPM (**version 8.5.5**)](https://www.npmjs.com/)
