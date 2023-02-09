@@ -7,8 +7,15 @@ import Error404 from './pages/Error404/Error404'
 
 import '../src/App.css'
 
-const App = () => {
+/** 
+ * @file App.js is the root file for this app. <br>
+ * Javascript file containing mock data.<br>
+ * <a href="data/dataMocker.js.html">dataMocker.js</a> can be used to develop, implement and test code without calling data by api.
+ * @author Veronica BERNARD
+ * @see <a href="https://github.com/VSABernard">My GitHub</a>
+ */
 
+const App = () => {
   return (
     <BrowserRouter>
         <Routes>
@@ -16,8 +23,7 @@ const App = () => {
           <Route path="/Dashboard/:userId" element={<Dashboard/>}/> 
           <Route path="*" element={<Error404/>} />
         </Routes>
-    </BrowserRouter>
-    
+    </BrowserRouter>    
   )
 }
 

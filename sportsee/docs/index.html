@@ -16,36 +16,289 @@
 <body>
 
 <div id="main">
+    
     <h1 class="page-title">Sportsee</h1>
+
+    
+
+
+
+    
+
+
     <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
     <section>
-        <header>
-            <h2>data/dataMocker.js</h2>
-        </header>
-        
-        <article>
-            <div class="container-overview">  
-                <div class="description">
-                    <p>Javascript file containing mock data.
-                        This file can be used to develop, implement and test code without calling data by api.</p>
-                </div>  
-                <dl class="details">
-                    <dt class="tag-source">Source:</dt>
-                    <dd class="tag-source">
-                        <ul class="dummy">
-                            <li>
-                                <a href="data/dataMocker.js.html">data/dataMock.js</a>, <a href="data_dataMocker.js.html#line1">line 1</a>
-                            </li>
-                        </ul>
-                    </dd>
-                </dl>
-            </div>
-        </article>        
+        <article><p><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&amp;logo=react&amp;logoColor=%2361DAFB" alt="React">
+<img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML5">
+<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS3">
+<img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="JavaScript">
+<img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&amp;logo=node.js&amp;logoColor=white" alt="NodeJS">
+<img src="https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&amp;logo=yarn&amp;logoColor=white" alt="Yarn">
+<img src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&amp;logo=npm&amp;logoColor=white" alt="NPM"></p>
+<h2>Projet 12 - Développer un tableau de bord d'analytics avec Reeact</h2>
+<hr>
+<h3><strong><em>Presentation</em></strong></h3>
+<p>Sportsee is a sports application that allows its users to follow their number of sessions performed and their number of calories burned.</p>
+<h3><strong><em>Prerequisites</em></strong></h3>
+<ul>
+<li><a href="https://nodejs.org/en/">NodeJS (<strong>version 16.15.0</strong>)</a></li>
+<li><a href="https://www.npmjs.com/">NPM (<strong>version 8.5.5</strong>)</a></li>
+<li><a href="https://yarnpkg.com/">Yarn (<strong>version 1.22.18</strong>)</a></li>
+<li><a href="https://en.reactjs.org/">REACT (<strong>version 17.0.2</strong>)</a> is recommanded to run charts correctly</li>
+<li><a href="https://recharts.org/">Recharts</a></li>
+<li><a href="https://github.com/axios/axios">Axios</a></li>
+<li><a href="https://code.visualstudio.com/">VsCode</a></li>
+</ul>
+<p>If you are working with several versions of NodeJS, it is recommended that you install <a href="https://github.com/nvm-sh/nvm">nvm</a>. <br>
+This tool will allow you to easily manage your NodeJS versions.</p>
+<h3><strong><em>Install the app</em></strong></h3>
+<ol>
+<li>For a good organization, you can create a folder named <strong><em>&quot;sportsee-backend&quot;</em></strong>  in which you will fork and clone the backend project from <a href="https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git">this repository</a> , <br> then create a folder named <strong><em>&quot;sportsee&quot;</em></strong>  for the frontend project.</li>
+<li>Follow the installation guides mentioned in the repository.</li>
+</ol>
+<h4><strong>How to launch the backend locally :</strong></h4>
+<ol>
+<li>Access the project directory: <br></li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>cd sportsee-backend</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>Install project dependencies:</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>npm install</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li>Launch :</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>npm run run:dev</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>Then launch :</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>npm start</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="5">
+<li>The back-end will be launched on port 3000</li>
+</ol>
+<h4><strong>How to launch the frontend :</strong></h4>
+<ol>
+<li>Access the project directory:</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>cd sportsee</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>Install npm packages (described in package.json):</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>npm install</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li>Then launch :</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>npm start</em></strong></p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>The front-end will be launched in</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong><em>http://localhost:3001</em></strong></p>
+</blockquote>
+</blockquote>
+<hr>
+<hr>
+<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
+<h3><strong><em>Available Scripts</em></strong></h3>
+<p>In the project directory, you can run :</p>
+<h4><strong><code>npm start</code></strong></h4>
+<p>Runs the app in the development mode.<br>
+Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in your browser.</p>
+<p>The page will reload when you make changes.<br>
+You may also see any lint errors in the console.</p>
+<h4><strong><code>npm test</code></strong></h4>
+<p>Launches the test runner in the interactive watch mode.<br>
+See the section about <a href="https://facebook.github.io/create-react-app/docs/running-tests">running tests</a> for more information.</p>
+<h4><strong><code>npm run build</code></strong></h4>
+<p>Builds the app for production to the <code>build</code> folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.</p>
+<p>The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!</p>
+<p>See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for more information.</p>
+<h4><strong><code>npm run eject</code></strong></h4>
+<p><em>Note: this is a one-way operation. Once you <code>eject</code>, you can't go back!</em></p>
+<p>If you aren't satisfied with the build tool and configuration choices, you can <code>eject</code> at any time. This command will remove the single build dependency from your project.</p>
+<p>Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except <code>eject</code> will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.</p>
+<p>You don't have to ever use <code>eject</code>. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.</p>
+<h3><strong><em>Learn More</em></strong></h3>
+<p>You can learn more in the <a href="https://facebook.github.io/create-react-app/docs/getting-started">Create React App documentation</a>.</p>
+<p>To learn React, check out the <a href="https://reactjs.org/">React documentation</a>.</p>
+<h4><strong>Code Splitting</strong></h4>
+<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/code-splitting">https://facebook.github.io/create-react-app/docs/code-splitting</a></p>
+<h4><strong>Analyzing the Bundle Size</strong></h4>
+<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size">https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size</a></p>
+<h4><strong>Making a Progressive Web App</strong></h4>
+<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app">https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app</a></p>
+<h4><strong>Advanced Configuration</strong></h4>
+<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/advanced-configuration">https://facebook.github.io/create-react-app/docs/advanced-configuration</a></p>
+<h4><strong>Deployment</strong></h4>
+<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/deployment">https://facebook.github.io/create-react-app/docs/deployment</a></p>
+<h4><strong><code>npm run build</code> fails to minify</strong></h4>
+<p>This section has moved here: <a href="https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify">https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify</a></p></article>
     </section>
+
+
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>App.js</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>App.js is the root file for this app. <br>
+Javascript file containing mock data.<br>
+<a href="data/dataMocker.js.html">dataMocker.js</a> can be used to develop, implement and test code without calling data by api.</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Veronica BERNARD</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line10">line 10</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://github.com/VSABernard">My GitHub</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
 </div>
 
 <nav>
-    <h2><a href="index.html">Sportsee</a></h2><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li></ul>
+    <h2><a href="index.html"><img src="./assets/logo.png" alt="logo"></a></h2><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li></ul>
 </nav>
 
 <br class="clear">

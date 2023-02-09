@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/RadialBarChart/RadialBarChart.js</title>
+    <title>JSDoc: Source: App.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Source: components/RadialBarChart/RadialBarChart.js</h1>
+    <h1 class="page-title">Source: App.js</h1>
 
     
 
@@ -27,73 +27,35 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react'
-import PropTypes from "prop-types"
-import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts'
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
-import '../RadialBarChart/RadialBarChart.css'
+import Homepage from './pages/Homepage/Homepage'
+import Dashboard from './pages/Dashboard/Dashboard'
+import Error404 from './pages/Error404/Error404'
 
-/**
- * Component React that displays the bar chart of user's average score
- * @param {Object} user The value of average score 
+import '../src/App.css'
+
+/** 
+ * @file App.js is the root file for this app. &lt;br>
+ * Javascript file containing mock data.&lt;br>
+ * &lt;a href="data/dataMocker.js.html">dataMocker.js&lt;/a> can be used to develop, implement and test code without calling data by api.
+ * @author Veronica BERNARD
+ * @see &lt;a href="https://github.com/VSABernard">My GitHub&lt;/a>
  */
-const ScoreBarChart = ({user}) => {
-    
-    /**
-     * 
-     */
-    let datas = []
 
-    /**
-     * 
-     */
-    let score = 0
-
-    if(user['score'] != null) {
-        score = user.score
-    }
-    if(user['todayScore'] != null){
-        score = user.todayScore
-    }
-
-    /**
-     * Retrieve user score and convert it to whole number without decimals
-     */
-    let data = {
-        value : score*100  
-    }
-    datas.push(data)
-
-    return (
-        &lt;div className='radialbar'>
-            &lt;h3>Score&lt;/h3>
-            &lt;div className='score-percentage'>
-                &lt;h4>{data.value}%&lt;/h4>
-                &lt;p>de votre objectif&lt;/p>
-            &lt;/div>
-            &lt;ResponsiveContainer width="100%" height="100%">
-            &lt;RadialBarChart cx="50%" cy="50%" innerRadius="55%" outerRadius="73%" 
-                            barSize={20} barCategoryGap={0} data={datas}
-                            startAngle={90} endAngle={450} fill="#FF0000">
-            &lt;circle cx="50%" cy="55%" fill="white" r="90">&lt;/circle>
-            &lt;PolarAngleAxis type="number" domain={[0, 100]} tick={false} />                    
-            &lt;RadialBar
-                minAngle={15} dataKey="value"
-                background={false} cornerRadius={10} />            
-            &lt;/RadialBarChart>
-        &lt;/ResponsiveContainer>
-        &lt;/div>
-    )
+const App = () => {
+  return (
+    &lt;BrowserRouter>
+        &lt;Routes>
+          &lt;Route path="/" element={&lt;Homepage/>} /> 
+          &lt;Route path="/Dashboard/:userId" element={&lt;Dashboard/>}/> 
+          &lt;Route path="*" element={&lt;Error404/>} />
+        &lt;/Routes>
+    &lt;/BrowserRouter>    
+  )
 }
 
-ScoreBarChart.propTypes = {
-    /**
-     * Containing user's todayScore data
-     */
-    user: PropTypes.object,
-  }
-  
-
-export default ScoreBarChart</code></pre>
+export default App</code></pre>
         </article>
     </section>
 
