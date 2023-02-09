@@ -12,7 +12,7 @@
 ## Projet 12 - Développer un tableau de bord d'analytics avec Reeact
 ****
 ### **_Presentation_**
- is a sports application that allows its users to follow their number of sessions performed and their number of calories burned.
+ Sportsee is a sports application that allows its users to follow their number of sessions performed and their number of calories burned.
 ###  **_Prerequisites_**
 * [NodeJS (**version 16.15.0**)](https://nodejs.org/en/)
 * [NPM (**version 8.5.5**)](https://www.npmjs.com/)
