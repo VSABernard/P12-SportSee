@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { useParams } from "react-router-dom"
+
+import { getUserActivity, getUserData, getUserAverage, getUserPerformance } from '../../service/Service'
 
 import Loader from '../../components/Loader/Loader'
 import Error404 from '../Error404/Error404'
+
 
 import HeaderNav from '../../components/HeaderNav/HeaderNav'
 import AsideNav from '../../components/AsideNAv/AsideNav'
@@ -32,12 +34,7 @@ function Dashboard()  {
 
   const [isLoading, setIsLoading] = useState(true) 
   const [errorMessage, setErrorMessage] = useState("")
-  const [counterLoading, setCounterLoading] = useState (0)
-
-  const baseUrlUser = `http://localhost:3000/user/${id}`
-  const baseUrlActivity = `http://localhost:3000/user/${id}/activity`
-  const baseUrlAverage = `http://localhost:3000/user/${id}/average-sessions`
-  const baseUrlPerformance = `http://localhost:3000/user/${id}/performance`
+  const [counterLoading, setCounterLoading] = useState (0)  
   
   const [ user, setUser ] = React.useState(null)
   const [ activity, setActivity ] = React.useState(null)
@@ -49,63 +46,65 @@ function Dashboard()  {
   * Error handling is handled by the CATCH at the promise level
   */
 
-  React.useEffect(() => {   
-    let timer = null
-
-    axios.get(baseUrlUser)
-      .then((response) => {
-        timer = setTimeout(() => {
-          setUser(response.data.data)
-          setCounterLoading((counterLoading)=>counterLoading+1)
-        }, 1000)})
-
-      .catch((error) => {       
-        setErrorMessage('Error on GET user:', error)
-        setIsLoading(false)
-        console.error('Error on GET user:', error)
-      })
-
-      return () => clearTimeout(timer)
-  }, [baseUrlUser])
-
-  React.useEffect(() => {
-    axios.get(baseUrlActivity)
-      .then((response) => {      
+  React.useEffect(() => {  
+    async function fetchUserData (id) {
+      let userData = await getUserData(id)
+      if ( userData != null ) {
+        setUser(userData)
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setActivity(response.data.data)})  
-
-      .catch((error) => {        
-        setErrorMessage('Error on GET activity:', error)
+      } else {
+        setErrorMessage('Error on GET user')
         setIsLoading(false)
-        console.error('Error on GET activity:', error)
-      })
-  }, [baseUrlActivity])
+        console.error('Error on GET user')        
+      }
+    }    
+  fetchUserData(id)      
+  }, [id])
 
   React.useEffect(() => {
-    axios.get(baseUrlAverage)
-    .then((response) => {
-      setCounterLoading((counterLoading)=>counterLoading+1)
-      setAverage(response.data.data)})
-
-      .catch((error) => {
-        setErrorMessage('Error on GET average:', error)
-        setIsLoading(false)        
-        console.error('Error on GET average:', error)
-      })
-  }, [baseUrlAverage])
+    async function fetchUserActivity (id) {
+      let useActivity = await getUserActivity(id)
+      if ( useActivity != null ) {
+        setCounterLoading((counterLoading)=>counterLoading+1)
+        setActivity(useActivity) 
+      } else {
+        setErrorMessage('Error on GET activity')
+        setIsLoading(false)
+        console.error('Error on GET activity')
+      }
+    }
+    fetchUserActivity(id)
+  }, [id])
 
   React.useEffect(() => {
-    axios.get(baseUrlPerformance)
-    .then((response) => {  
-      setCounterLoading((counterLoading)=>counterLoading+1)
-      setPerformance(response.data.data)})
-
-      .catch((error) => {        
-        setErrorMessage('Error on GET performance:', error)
+    async function fetchUserAverage (id) {
+      let useAverage = await getUserAverage(id)
+      if ( useAverage != null ) {
+        setCounterLoading((counterLoading)=>counterLoading+1)
+        setAverage(useAverage) 
+      } else {
+        setErrorMessage('Error on GET activity')
         setIsLoading(false)
-        console.error('Error on GET performance:', error)
-      })
-  }, [baseUrlPerformance])
+        console.error('Error on GET activity')
+      }
+    }
+    fetchUserAverage(id)
+  }, [id])
+
+  React.useEffect(() => {
+    async function fetchUserPerformance (id) {
+      let usePerformance = await getUserPerformance(id)
+      if ( usePerformance != null ) {
+        setCounterLoading((counterLoading)=>counterLoading+1)
+        setPerformance(usePerformance) 
+      } else {
+        setErrorMessage('Error on GET performance')
+        setIsLoading(false)
+        console.error('Error on GET performance')
+      }
+    }
+    fetchUserPerformance(id)
+  }, [id])
 
   React.useEffect(() => {
     if(counterLoading > 3){
