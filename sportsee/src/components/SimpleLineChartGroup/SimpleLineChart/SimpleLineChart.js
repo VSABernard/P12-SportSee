@@ -31,7 +31,7 @@ const SimpleLineChart = ({sessions}) => {
 
     return (
         <div className='simple-line'>
-            <LineChart width={250} height={215} 
+            <LineChart width={212} height={215} 
                         data={sessions} margin={{ top: -40, right: 0, left: 0, bottom: 0 }} >
                 <XAxis  dataKey= "name"  type='category'
                         padding={{ left: 10, right: 10 }} axisLine={false}

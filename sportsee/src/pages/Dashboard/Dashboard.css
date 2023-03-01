@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 700px;
-  width: 1024px;
+  width: 900px;
   margin: 30px auto 0;
   padding: 0 20px;
 }
@@ -37,7 +37,7 @@
 .second-line-charts {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  grid-template-columns: repeat(3, 212px);
   margin-top: 30px;
 }
 

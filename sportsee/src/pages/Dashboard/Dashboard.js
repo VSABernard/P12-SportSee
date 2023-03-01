@@ -48,14 +48,17 @@ function Dashboard()  {
 
   React.useEffect(() => {  
     async function fetchUserData (id) {
-      let userData = await getUserData(id)
+      let response = await getUserData(id)
+      let userData = response.user
+      let errorMessage = response.errorMessage
+
       if ( userData != null ) {
         setUser(userData)
-        setCounterLoading((counterLoading)=>counterLoading+1)
+        setCounterLoading((counterLoading)=>counterLoading+1 )
       } else {
-        setErrorMessage('Error on GET user')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET user')        
+        console.error('Error on GET user data:' + errorMessage )        
       }
     }    
   fetchUserData(id)      
@@ -63,14 +66,17 @@ function Dashboard()  {
 
   React.useEffect(() => {
     async function fetchUserActivity (id) {
-      let useActivity = await getUserActivity(id)
-      if ( useActivity != null ) {
+      let response = await getUserActivity(id)
+      let userActivity = response.activity
+      let errorMessage = response.errorMessage
+
+      if ( userActivity != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setActivity(useActivity) 
+        setActivity(userActivity) 
       } else {
-        setErrorMessage('Error on GET activity')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET activity')
+        console.error('Error on GET user data:' + errorMessage ) 
       }
     }
     fetchUserActivity(id)
@@ -78,14 +84,17 @@ function Dashboard()  {
 
   React.useEffect(() => {
     async function fetchUserAverage (id) {
-      let useAverage = await getUserAverage(id)
-      if ( useAverage != null ) {
+      let response = await getUserAverage(id)
+      let userAverage = response.average
+      let errorMessage = response.errorMessage
+
+      if ( userAverage != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setAverage(useAverage) 
+        setAverage(userAverage) 
       } else {
-        setErrorMessage('Error on GET activity')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET activity')
+        console.error('Error on GET user data:' + errorMessage ) 
       }
     }
     fetchUserAverage(id)
@@ -93,14 +102,17 @@ function Dashboard()  {
 
   React.useEffect(() => {
     async function fetchUserPerformance (id) {
-      let usePerformance = await getUserPerformance(id)
-      if ( usePerformance != null ) {
+      let response = await getUserPerformance(id)
+      let userPerformance = response.performance
+      let errorMessage = response.errorMessage
+
+      if ( userPerformance != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setPerformance(usePerformance) 
+        setPerformance(userPerformance) 
       } else {
-        setErrorMessage('Error on GET performance')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET performance')
+        console.error('Error on GET user data:' + errorMessage ) 
       }
     }
     fetchUserPerformance(id)

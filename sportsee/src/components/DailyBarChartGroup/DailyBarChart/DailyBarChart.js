@@ -75,7 +75,7 @@ const DailyBarChart = ({sessions}) => {
                 verticalAlign='top' align='right' height={24} />
           <Bar  dataKey="kilogram" name="Poids (kg)" 
                 fill="#282D30" barSize={10} radius= {[5, 5, 0, 0]} />
-          <Bar  dataKey="calories" name="Calories brulées (kCal)" 
+          <Bar  dataKey="calories" name="Calories brulées (kCal)"
                 fill="#E60000" barSize={10} radius= {[5, 5, 0, 0]} />               
         </BarChart>
      </ResponsiveContainer> 

@@ -7,26 +7,21 @@ import axios from 'axios'
  */
 
  export const getUserData = async (id) => {
-    
-    // user model
-    let user = {
-        nom : '',
-        prenom : '',
-    }
+    let user = null
+    let errorMessage = null
 
     if(id != null && id !== '') {
         const baseUrlUser = `http://localhost:3000/user/${id}`
 
         await axios.get(baseUrlUser)
         .then((response) => {
-            //TODO: use user model
             user = response.data.data
             
-        }).catch((error) => {                    
-            console.error('Error on GET activity:', error)
+        }).catch((error) => {    
+            errorMessage = error.message
         })
     }
-    return user
+    return { user, errorMessage }
 }
 
 /**
@@ -37,6 +32,7 @@ import axios from 'axios'
 
 export const getUserActivity = async (id) => {
     let activity = null
+    let errorMessage = null
 
     if(id != null && id !== '') {
         const baseUrlUser = `http://localhost:3000/user/${id}/activity`
@@ -45,10 +41,10 @@ export const getUserActivity = async (id) => {
         .then((response) => {
             activity = response.data.data
         }).catch((error) => {                    
-            console.error('Error on GET activity:', error)
+            errorMessage = error.message
         })
     }
-    return activity
+    return { activity, errorMessage }
 }
     
 /**
@@ -59,6 +55,7 @@ export const getUserActivity = async (id) => {
 
 export const getUserAverage = async (id) => {
     let average = null
+    let errorMessage = null
 
     if(id != null && id !== '') {
         const baseUrlUser = `http://localhost:3000/user/${id}/average-sessions`
@@ -67,10 +64,10 @@ export const getUserAverage = async (id) => {
         .then((response) => {
             average = response.data.data
         }).catch((error) => {                    
-            console.error('Error on GET average:', error)
+            errorMessage = error.message
         })
     }
-    return average
+    return { average, errorMessage }
 }
 
 /**
@@ -81,6 +78,7 @@ export const getUserAverage = async (id) => {
 
 export const getUserPerformance = async (id) => {
     let performance = null
+    let errorMessage = null
 
     if(id != null && id !== '') {
         const baseUrlUser = `http://localhost:3000/user/${id}/performance`
@@ -89,8 +87,8 @@ export const getUserPerformance = async (id) => {
         .then((response) => {
             performance = response.data.data
         }).catch((error) => {                    
-            console.error('Error on GET performance:', error)
+            errorMessage = error.message
         })
     }
-    return performance
+    return { performance, errorMessage }
 }
