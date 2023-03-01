@@ -9,6 +9,7 @@ import "./AsideNav.css"
 /**
  * Component React that displays vertical navigation bar with icons and copyright
  * @component
+ * @returns The vertical navigation bars of the app
  */
 
 const AsideNav = () => {

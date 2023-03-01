@@ -7,6 +7,7 @@ import '../RadialBarChart/RadialBarChart.css'
 /**
  * Component React that displays the bar chart of user's average score
  * @param {Object} user The value of average score 
+ * @returns The user's average scores bar chart
  */
 const ScoreBarChart = ({user}) => {
     

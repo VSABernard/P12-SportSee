@@ -12,6 +12,7 @@ import lipids from "../../assets/fat-icon.png"
  * Component React that displays the key information of a user in the form of a card
  * @component
  * @param {Object} keyData User's key informations of health
+ * @returns The user's key information card
  */
 
 const CardInfos = ({keyData}) => {

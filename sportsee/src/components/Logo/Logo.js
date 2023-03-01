@@ -6,6 +6,7 @@ import "../Logo/Logo.css"
 /**
  * Component React that displays the logo of Sportsee
  * @component 
+ * @returns Sportsee's logo
  */
 const Logo = () => {
   return (    

@@ -35,10 +35,9 @@ This tool will allow you to easily manage your NodeJS versions.
 2. Install project dependencies: 
 >>**_npm install_**
 3. Launch : 
->>**_npm run run:dev_**
-4. Then launch : 
 >>**_npm start_**
-5. The backend will be launched on port 3000
+4. The backend will be launched in
+>>**_http://localhost:3000/_**
 
 #### **How to launch the frontend :**
 1. Access the project directory: 

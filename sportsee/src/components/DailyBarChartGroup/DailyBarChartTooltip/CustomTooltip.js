@@ -6,6 +6,7 @@ import '../DailyBarChartTooltip/CustomTooltip.css'
  * Component React that displays the tooltip of bar chart
  * @param {Boolean} active To display the tooltip when it's set true and vice versa
  * @param {Array} payload The source data of the content to be displayed in the tooltip
+ * @returns The bar chart's tooltip
  */
 const CustomTooltip = ({ active, payload }) => {
     if ( active && payload && payload.length ) {

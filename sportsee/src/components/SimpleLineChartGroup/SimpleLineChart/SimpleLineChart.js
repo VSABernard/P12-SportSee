@@ -11,6 +11,7 @@ import './SimpleLineChart.css'
  * Component React that displays the simple line chart of user's average session duration
  * @component
  * @param {Array} sessions List of activity session
+ * @returns The user's average session duration's simple line chart
  */
 const SimpleLineChart = ({sessions}) => {
    

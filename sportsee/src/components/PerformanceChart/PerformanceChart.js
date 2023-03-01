@@ -8,6 +8,7 @@ import '../PerformanceChart/PerformanceChart.css'
  * Component React that displays the radar chart of user's performance
  * @conmponent
  * @param {Object} datas The value of each performance's type 
+ * @returns The user's performances radar chart
  */
 const PerformanceChart = ({datas}) => {
    

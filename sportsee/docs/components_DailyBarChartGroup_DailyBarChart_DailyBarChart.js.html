@@ -40,6 +40,7 @@ import '../DailyBarChart/DailyBarChart.css'
  * Component React that displays the bar chart of user's daily activities
  * @component
  * @param {Array} sessions Daily activity's session
+ * @returns The user's daily activities bar chart 
  */
 const DailyBarChart = ({sessions}) => {
   
@@ -68,7 +69,7 @@ const DailyBarChart = ({sessions}) => {
    * Collect the maximal data weight value to define BarChart's ticks value
    * @type {number}
    */
-  let maxWeight = sessions[sessions.length - 1].kilogram
+  let maxWeight = sessions[sessions.length-1].calories
 
   /**
    * Calculate the average data weight value to define BarChart's ticks value
@@ -86,12 +87,12 @@ const DailyBarChart = ({sessions}) => {
           &lt;XAxis dataKey="day" type='number' tickCount={sessions.length} domain={["dataMin", "dataMax"]} 
                 tick={{fill:"#9B9EAC"}} stroke="#DEDEDE" tickSize={0} fontSize={12}
                 tickMargin={10} padding={{ left: 15, right: 10 }} />
-          &lt;YAxis dataKey="calories" type="number" tick={{fill: "#9B9EAC"}} 
-                axisLine={false} orientation='right' interval='preserveStartEnd'
+          &lt;YAxis dataKey="kilogram" type="number" tick={{fill: "#9B9EAC"}} 
+                axisLine={false} orientation='right' interval={0}
                 minTickGap={0} tickMargin={15} tickLine={false} tickCount={5} 
-                fontSize={12} padding={{bottom: -8, top: 0, left: 10}} 
+                fontSize={12} padding={{bottom: -11, top: 0, left: 10}} 
                 domain={["dataMin-100", "dataMax+1"]} ticks={[minWeight, middleWeight, maxWeight]} />         
-          &lt;YAxis dataKey="kilogram" type="number" hide={true}
+          &lt;YAxis dataKey="calories" type="number" hide={true}
                 yAxisId="left" orientation="left" tickCount={3} 
                 domain={["dataMin - 1", (dataMax) => dataMax + 10]} /> 
           &lt;Tooltip content={&lt;CustomTooltip /> } offset={45}

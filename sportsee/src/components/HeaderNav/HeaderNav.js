@@ -6,6 +6,7 @@ import "../HeaderNav/HeaderNav.css"
 /**
  * Component React which display the navigation's buttons on the header
  * @component
+ * @returns The horizontal navigation bars of the app
  */
 
 const HeaderNav = () => {
