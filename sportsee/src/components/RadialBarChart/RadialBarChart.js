@@ -11,14 +11,8 @@ import '../RadialBarChart/RadialBarChart.css'
  */
 const ScoreBarChart = ({user}) => {
     
-    /**
-     * 
-     */
     let datas = []
-
-    /**
-     * 
-     */
+    
     let score = 0
 
     if(user['score'] != null) {

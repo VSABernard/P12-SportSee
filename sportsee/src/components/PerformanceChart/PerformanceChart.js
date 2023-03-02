@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from "prop-types";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import React from 'react'
+import PropTypes from "prop-types"
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
 
 import '../PerformanceChart/PerformanceChart.css'
 

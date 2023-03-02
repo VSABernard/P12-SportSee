@@ -29,24 +29,19 @@ function Dashboard()  {
     window.scrollTo(0,0)                                         /* On load, the page is displayed at its top */  
   })
 
-  const params = useParams()
+  const params = useParams()                                    /* Retrieve the user's id parameter in the URL */
   const id = params.userId
 
   const [isLoading, setIsLoading] = useState(true) 
   const [errorMessage, setErrorMessage] = useState("")
   const [counterLoading, setCounterLoading] = useState (0)  
   
-  const [ user, setUser ] = React.useState(null)
-  const [ activity, setActivity ] = React.useState(null)
-  const [ average, setAverage ] = React.useState(null)
-  const [ performance, setPerformance ] = React.useState(null)
+  const [ user, setUser ] = useState(null)
+  const [ activity, setActivity ] = useState(null)
+  const [ average, setAverage ] = useState(null)
+  const [ performance, setPerformance ] = useState(null)
 
-  /*
-  * To retrieve the URLs to access the data via the corresponding route
-  * Error handling is handled by the CATCH at the promise level
-  */
-
-  React.useEffect(() => {  
+  useEffect(() => {  
     async function fetchUserData (id) {
       let response = await getUserData(id)
       let userData = response.user
@@ -64,7 +59,7 @@ function Dashboard()  {
   fetchUserData(id)      
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchUserActivity (id) {
       let response = await getUserActivity(id)
       let userActivity = response.activity
@@ -82,7 +77,7 @@ function Dashboard()  {
     fetchUserActivity(id)
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchUserAverage (id) {
       let response = await getUserAverage(id)
       let userAverage = response.average
@@ -100,7 +95,7 @@ function Dashboard()  {
     fetchUserAverage(id)
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchUserPerformance (id) {
       let response = await getUserPerformance(id)
       let userPerformance = response.performance
@@ -118,7 +113,7 @@ function Dashboard()  {
     fetchUserPerformance(id)
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(counterLoading > 3){
       setIsLoading(false)
     }
