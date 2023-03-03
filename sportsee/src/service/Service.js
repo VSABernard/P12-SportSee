@@ -1,4 +1,8 @@
 import axios from 'axios'
+import { ActivityModel } from '../models/ActivityModel'
+import { UserModel } from '../models/UserModel'
+import { AverageModel } from '../models/AverageModel'
+import { PerformanceModel } from '../models/PerformanceModel'
 
 /**
  * Get the user's data from the API
@@ -15,8 +19,7 @@ import axios from 'axios'
 
         await axios.get(baseUrlUser)
         .then((response) => {
-            user = response.data.data
-            
+            user = new UserModel(response.data.data)            
         }).catch((error) => {    
             errorMessage = error.message
         })
@@ -39,14 +42,14 @@ export const getUserActivity = async (id) => {
 
         await axios.get(baseUrlUser)
         .then((response) => {
-            activity = response.data.data
+            activity = new ActivityModel(response.data.data)
         }).catch((error) => {                    
             errorMessage = error.message
         })
     }
     return { activity, errorMessage }
 }
-    
+   
 /**
  * Get the user's average's data from the API
  * @param {string} id User's id
@@ -62,7 +65,7 @@ export const getUserAverage = async (id) => {
 
         await axios.get(baseUrlUser)
         .then((response) => {
-            average = response.data.data
+            average = new AverageModel(response.data.data)
         }).catch((error) => {                    
             errorMessage = error.message
         })
@@ -85,7 +88,7 @@ export const getUserPerformance = async (id) => {
 
         await axios.get(baseUrlUser)
         .then((response) => {
-            performance = response.data.data
+            performance = new PerformanceModel(response.data.data)
         }).catch((error) => {                    
             errorMessage = error.message
         })
