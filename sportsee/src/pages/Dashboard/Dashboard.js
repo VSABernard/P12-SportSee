@@ -45,11 +45,10 @@ function Dashboard()  {
     async function fetchUserData (id) {
       let response = await getUserData(id)
       let userModel = response.user
-      let userData = userModel.getJSON()
       let errorMessage = response.errorMessage
 
-      if ( userData != null ) {
-        setUser(userData)
+      if ( userModel != null ) {
+        setUser(userModel)
         setCounterLoading((counterLoading)=>counterLoading+1 )
       } else {
         setErrorMessage('Error on GET user data:' + errorMessage )
@@ -64,12 +63,11 @@ function Dashboard()  {
     async function fetchUserActivity (id) {
       let response = await getUserActivity(id)
       let activityModel = response.activity
-      let activityData = activityModel.getJSON()
       let errorMessage = response.errorMessage
 
-      if ( activityData != null ) {
+      if ( activityModel != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setActivity(activityData) 
+        setActivity(activityModel) 
       } else {
         setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
@@ -83,12 +81,11 @@ function Dashboard()  {
     async function fetchUserAverage (id) {
       let response = await getUserAverage(id)
       let averageModel = response.average
-      let averageData = averageModel.getJSON()
       let errorMessage = response.errorMessage
 
-      if ( averageData != null ) {
+      if ( averageModel != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setAverage(averageData) 
+        setAverage(averageModel) 
       } else {
         setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
@@ -102,12 +99,11 @@ function Dashboard()  {
     async function fetchUserPerformance (id) {
       let response = await getUserPerformance(id)
       let performanceModel = response.performance
-      let performanceData = performanceModel.getJSON()
       let errorMessage = response.errorMessage
 
-      if ( performanceData != null ) {
+      if ( performanceModel != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setPerformance(performanceData) 
+        setPerformance(performanceModel) 
       } else {
         setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
@@ -116,6 +112,7 @@ function Dashboard()  {
     }
     fetchUserPerformance(id)
   }, [id])
+  
 
   useEffect(() => {
     if(counterLoading > 3){

@@ -90,7 +90,7 @@ export const getUserAverage = async (id) => {
     if(id != null && id !== '') {
         if(isMock === true){
             let averageFound = USER_AVERAGE_SESSIONS.find((average) => average.userId === parseInt(id, 10))
-            average = new ActivityModel(averageFound)
+            average = new AverageModel(averageFound)
         } else {
             const baseUrlUser = `http://localhost:3000/user/${id}/average-sessions`
 

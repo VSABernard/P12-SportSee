@@ -15,13 +15,5 @@ export class AverageModel {
 
     get sessions() {
         return this._sessions
-    }
-
-    getJSON(){           
-        let average = {
-            userId : this._userId,
-            sessions : this._sessions
-        }     
-        return average
-    }
+    }    
 }

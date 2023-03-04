@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/DailyBarChartGroup/DailyBarChartTooltip/CustomTooltip.js</title>
+    <title>JSDoc: Source: models/UserModel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -26,36 +26,52 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import PropTypes from 'prop-types'
-import '../DailyBarChartTooltip/CustomTooltip.css'
-
-/**
- * Component React that displays the tooltip of bar chart
- * @param {Boolean} active To display the tooltip when it's set true and vice versa
- * @param {Array} payload The source data of the content to be displayed in the tooltip
- * @returns The bar chart's tooltip
+            <pre class="prettyprint source linenums"><code>/**
+ * The class of React which displays the user's main formated data
+ * @class Create the user's main formated data
  */
-const CustomTooltip = ({ active, payload }) => {
-    if ( active &amp;&amp; payload &amp;&amp; payload.length ) {
-        return (
-            &lt;div className='tooltip-activity'>
-                &lt;p className='tooltip-activity-weight'>{`${payload[0].value}Kg`}&lt;/p>
-                &lt;p className='tooltip-activity-calorie'>{`${payload[1].value}kCal`}&lt;/p>
-            &lt;/div>
-        )
+export class UserModel {
+    constructor(data) {
+        this._id = data.id
+        this._firstName = data.userInfos.firstName
+        this._lastName = data.userInfos.lastName
+        this._score = data.score != null ? data.score : data.todayScore
+        this._calorieCount = data.keyData.calorieCount
+        this._proteinCount = data.keyData.proteinCount
+        this._carbohydrateCount = data.keyData.carbohydrateCount
+        this._lipidCount = data.keyData.lipidCount
+        this._userInfos = data.userInfos
+        this._keyData = data.keyData
     }
-    return null
-}
 
-CustomTooltip.propTypes = {
-    /**
-     * Recharts props value containing user's activity data used for the bar chart and internally formatted by Recharts
-     */
-    payload: PropTypes.array,
-  }
+    get id(){
+        return this._id
+    }
 
-export default CustomTooltip</code></pre>
+    get firstName() {
+        return this._firstName
+    }
+
+    get lastName() {
+        return this._lastName
+    }
+
+    get name() {
+        return this._firstName + ' ' + this._lastName
+    }
+
+    get score() {
+        return this._score
+    }
+
+    get userInfos() {
+        return this._userInfos
+    }
+
+    get keyData() {
+       return this._keyData
+    }
+}</code></pre>
         </article>
     </section>
 

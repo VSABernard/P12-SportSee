@@ -36,21 +36,11 @@ export class UserModel {
         return this._score
     }
 
-    get userInfo() {
+    get userInfos() {
         return this._userInfos
     }
 
     get keyData() {
        return this._keyData
-    }
-
-    getJSON(){           
-        let user = {
-            id: this._id,
-            userInfos: this._userInfos,
-            score: this._score,
-            keyData: this._keyData
-        }        
-        return user
     }
 }

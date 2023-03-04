@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/DailyBarChartGroup/DailyBarChartTooltip/CustomTooltip.js</title>
+    <title>JSDoc: Class: UserModel</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -23,41 +23,138 @@
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import PropTypes from 'prop-types'
-import '../DailyBarChartTooltip/CustomTooltip.css'
+        <h2><span class="attribs"><span class="type-signature"></span></span>UserModel<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>Create the user's main formated data</p></div>
+        
+    
+</header>
 
-/**
- * Component React that displays the tooltip of bar chart
- * @param {Boolean} active To display the tooltip when it's set true and vice versa
- * @param {Array} payload The source data of the content to be displayed in the tooltip
- * @returns The bar chart's tooltip
- */
-const CustomTooltip = ({ active, payload }) => {
-    if ( active &amp;&amp; payload &amp;&amp; payload.length ) {
-        return (
-            &lt;div className='tooltip-activity'>
-                &lt;p className='tooltip-activity-weight'>{`${payload[0].value}Kg`}&lt;/p>
-                &lt;p className='tooltip-activity-calorie'>{`${payload[1].value}kCal`}&lt;/p>
-            &lt;/div>
-        )
-    }
-    return null
-}
+<article>
+    <div class="container-overview">
+    
+        
 
-CustomTooltip.propTypes = {
-    /**
-     * Recharts props value containing user's activity data used for the bar chart and internally formatted by Recharts
-     */
-    payload: PropTypes.array,
-  }
+    
+    <h2>Constructor</h2>
+    
 
-export default CustomTooltip</code></pre>
-        </article>
-    </section>
+    
+    <h4 class="name" id="UserModel"><span class="type-signature"></span>new UserModel<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_UserModel.js.html">models/UserModel.js</a>, <a href="models_UserModel.js.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="UserModel.html">UserModel</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

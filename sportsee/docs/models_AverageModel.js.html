@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/DailyBarChartGroup/DailyBarChartTooltip/CustomTooltip.js</title>
+    <title>JSDoc: Source: models/AverageModel.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -26,36 +26,25 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import PropTypes from 'prop-types'
-import '../DailyBarChartTooltip/CustomTooltip.css'
-
-/**
- * Component React that displays the tooltip of bar chart
- * @param {Boolean} active To display the tooltip when it's set true and vice versa
- * @param {Array} payload The source data of the content to be displayed in the tooltip
- * @returns The bar chart's tooltip
+            <pre class="prettyprint source linenums"><code>/**
+ * The class of React which displays the user's average sessions' formated data
+ * @class Create the user's average sessions' formated data
  */
-const CustomTooltip = ({ active, payload }) => {
-    if ( active &amp;&amp; payload &amp;&amp; payload.length ) {
-        return (
-            &lt;div className='tooltip-activity'>
-                &lt;p className='tooltip-activity-weight'>{`${payload[0].value}Kg`}&lt;/p>
-                &lt;p className='tooltip-activity-calorie'>{`${payload[1].value}kCal`}&lt;/p>
-            &lt;/div>
-        )
+
+export class AverageModel {
+    constructor(data) {
+        this._userId = data.userId
+        this._sessions = data.sessions
     }
-    return null
-}
 
-CustomTooltip.propTypes = {
-    /**
-     * Recharts props value containing user's activity data used for the bar chart and internally formatted by Recharts
-     */
-    payload: PropTypes.array,
-  }
+    get userId(){
+        return this._userId
+    }
 
-export default CustomTooltip</code></pre>
+    get sessions() {
+        return this._sessions
+    }    
+}</code></pre>
         </article>
     </section>
 

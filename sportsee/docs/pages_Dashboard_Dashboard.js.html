@@ -57,84 +57,92 @@ function Dashboard()  {
     window.scrollTo(0,0)                                         /* On load, the page is displayed at its top */  
   })
 
-  const params = useParams()
+  const params = useParams()                                    /* Retrieve the user's id parameter in the URL */
   const id = params.userId
 
   const [isLoading, setIsLoading] = useState(true) 
   const [errorMessage, setErrorMessage] = useState("")
   const [counterLoading, setCounterLoading] = useState (0)  
   
-  const [ user, setUser ] = React.useState(null)
-  const [ activity, setActivity ] = React.useState(null)
-  const [ average, setAverage ] = React.useState(null)
-  const [ performance, setPerformance ] = React.useState(null)
+  const [ user, setUser ] = useState(null)
+  const [ activity, setActivity ] = useState(null)
+  const [ average, setAverage ] = useState(null)
+  const [ performance, setPerformance ] = useState(null)
 
-  /*
-  * To retrieve the URLs to access the data via the corresponding route
-  * Error handling is handled by the CATCH at the promise level
-  */
-
-  React.useEffect(() => {  
+  useEffect(() => {  
     async function fetchUserData (id) {
-      let userData = await getUserData(id)
-      if ( userData != null ) {
-        setUser(userData)
-        setCounterLoading((counterLoading)=>counterLoading+1)
+      let response = await getUserData(id)
+      let userModel = response.user
+      let errorMessage = response.errorMessage
+
+      if ( userModel != null ) {
+        setUser(userModel)
+        setCounterLoading((counterLoading)=>counterLoading+1 )
       } else {
-        setErrorMessage('Error on GET user:')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET user:')        
+        console.error('Error on GET user data:' + errorMessage )        
       }
     }    
   fetchUserData(id)      
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchUserActivity (id) {
-      let useActivity = await getUserActivity(id)
-      if ( useActivity != null ) {
+      let response = await getUserActivity(id)
+      let activityModel = response.activity
+      let errorMessage = response.errorMessage
+
+      if ( activityModel != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setActivity(useActivity) 
+        setActivity(activityModel) 
       } else {
-        setErrorMessage('Error on GET activity:')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET activity:')
+        console.error('Error on GET user data:' + errorMessage ) 
       }
     }
     fetchUserActivity(id)
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchUserAverage (id) {
-      let useAverage = await getUserAverage(id)
-      if ( useAverage != null ) {
+      let response = await getUserAverage(id)
+      let averageModel = response.average
+      let errorMessage = response.errorMessage
+
+      if ( averageModel != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setAverage(useAverage) 
+        setAverage(averageModel) 
       } else {
-        setErrorMessage('Error on GET activity:')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET activity:')
+        console.error('Error on GET user data:' + errorMessage ) 
       }
     }
     fetchUserAverage(id)
   }, [id])
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function fetchUserPerformance (id) {
-      let usePerformance = await getUserPerformance(id)
-      if ( usePerformance != null ) {
+      let response = await getUserPerformance(id)
+      let performanceModel = response.performance
+      let errorMessage = response.errorMessage
+
+      if ( performanceModel != null ) {
         setCounterLoading((counterLoading)=>counterLoading+1)
-        setPerformance(usePerformance) 
+        setPerformance(performanceModel) 
       } else {
-        setErrorMessage('Error on GET performance:')
+        setErrorMessage('Error on GET user data:' + errorMessage )
         setIsLoading(false)
-        console.error('Error on GET performance:')
+        console.error('Error on GET user data:' + errorMessage ) 
       }
     }
     fetchUserPerformance(id)
   }, [id])
+  
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(counterLoading > 3){
       setIsLoading(false)
     }
@@ -185,7 +193,7 @@ export default Dashboard</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html"><img src="./assets/logo.png" alt="logo"></a></h2><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverage">getUserAverage</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li></ul>
+    <h2><a href="index.html"><img src="./assets/logo.png" alt="logo"></a></h2><h3>Classes</h3><ul><li><a href="ActivityModel.html">ActivityModel</a></li><li><a href="AverageModel.html">AverageModel</a></li><li><a href="PerformanceModel.html">PerformanceModel</a></li><li><a href="UserModel.html">UserModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverage">getUserAverage</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#isMock">isMock</a></li></ul>
 </nav>
 
 <br class="clear">

@@ -20,13 +20,4 @@ export class PerformanceModel {
     get data() {
         return this._data
     }
-
-    getJSON(){           
-        let performance = {
-            userId : this._userId,
-            kind : this._kind,
-            data : this._data
-        }     
-        return performance
-    }
 }

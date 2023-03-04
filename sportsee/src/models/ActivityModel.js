@@ -15,12 +15,4 @@ export class ActivityModel {
     get sessions() {
         return this._sessions
     }
-
-    getJSON(){           
-        let activity = {
-            userId : this._userId,
-            sessions : this._sessions
-        }     
-        return activity
-    }
 }

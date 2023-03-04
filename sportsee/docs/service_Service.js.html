@@ -27,6 +27,26 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import axios from 'axios'
+import { ActivityModel } from '../models/ActivityModel'
+import { UserModel } from '../models/UserModel'
+import { AverageModel } from '../models/AverageModel'
+import { PerformanceModel } from '../models/PerformanceModel'
+
+/**
+ * Mock data from dataMocker.js
+ */
+const {
+    USER_MAIN_DATA,
+    USER_ACTIVITY,
+    USER_AVERAGE_SESSIONS,
+    USER_PERFORMANCE
+} = require('../data/dataMocker')
+
+/**
+ * A setting to switch between mock data or API data
+ * If true then get data from DataMocker.js otherwise get data from API
+ */
+export const isMock = true
 
 /**
  * Get the user's data from the API
@@ -35,26 +55,26 @@
  */
 
  export const getUserData = async (id) => {
-    
-    // user model
-    let user = {
-        nom : '',
-        prenom : '',
-    }
+    let user = null
+    let errorMessage = null
 
     if(id != null &amp;&amp; id !== '') {
-        const baseUrlUser = `http://localhost:3000/user/${id}`
 
-        await axios.get(baseUrlUser)
-        .then((response) => {
-            //TODO: use user model
-            user = response.data.data
-            
-        }).catch((error) => {                    
-            console.error('Error on GET activity:', error)
-        })
+        if(isMock === true){
+            let userFound = USER_MAIN_DATA.find((user) => user.id === parseInt(id, 10))
+            user = new UserModel(userFound)
+        } else {
+            const baseUrlUser = `http://localhost:3000/user/${id}`
+
+            await axios.get(baseUrlUser)
+            .then((response) => {
+                user = new UserModel(response.data.data)            
+            }).catch((error) => {    
+                errorMessage = error.message
+            })
+        }
     }
-    return user
+    return { user, errorMessage }
 }
 
 /**
@@ -65,39 +85,52 @@
 
 export const getUserActivity = async (id) => {
     let activity = null
+    let errorMessage = null
 
     if(id != null &amp;&amp; id !== '') {
-        const baseUrlUser = `http://localhost:3000/user/${id}/activity`
+        if(isMock === true){
+            let activityFound = USER_ACTIVITY.find((activity) => activity.userId === parseInt(id, 10))
+            activity = new ActivityModel(activityFound)
+        } else {
+            const baseUrlUser = `http://localhost:3000/user/${id}/activity`
 
-        await axios.get(baseUrlUser)
-        .then((response) => {
-            activity = response.data.data
-        }).catch((error) => {                    
-            console.error('Error on GET activity:', error)
-        })
+            await axios.get(baseUrlUser)
+            .then((response) => {
+                activity = new ActivityModel(response.data.data)
+            }).catch((error) => {                    
+                errorMessage = error.message
+            })
+        }
     }
-    return activity
+    return { activity, errorMessage }
 }
-    
+   
 /**
  * Get the user's average's data from the API
  * @param {string} id User's id
  * @returns User's average's data
  */
+
 export const getUserAverage = async (id) => {
     let average = null
+    let errorMessage = null
 
     if(id != null &amp;&amp; id !== '') {
-        const baseUrlUser = `http://localhost:3000/user/${id}/average-sessions`
+        if(isMock === true){
+            let averageFound = USER_AVERAGE_SESSIONS.find((average) => average.userId === parseInt(id, 10))
+            average = new AverageModel(averageFound)
+        } else {
+            const baseUrlUser = `http://localhost:3000/user/${id}/average-sessions`
 
-        await axios.get(baseUrlUser)
-        .then((response) => {
-            average = response.data.data
-        }).catch((error) => {                    
-            console.error('Error on GET average:', error)
-        })
+            await axios.get(baseUrlUser)
+            .then((response) => {
+                average = new AverageModel(response.data.data)
+            }).catch((error) => {                    
+                errorMessage = error.message
+            })
+        }
     }
-    return average
+    return { average, errorMessage }
 }
 
 /**
@@ -105,23 +138,28 @@ export const getUserAverage = async (id) => {
  * @param {string} id User's id
  * @returns User's performances data
  */
+
 export const getUserPerformance = async (id) => {
     let performance = null
+    let errorMessage = null
 
     if(id != null &amp;&amp; id !== '') {
-        const baseUrlUser = `http://localhost:3000/user/${id}/performance`
+        if(isMock === true){
+            let performanceFound = USER_PERFORMANCE.find((performance) => performance.userId === parseInt(id, 10))
+            performance = new PerformanceModel(performanceFound)
+        } else {
+            const baseUrlUser = `http://localhost:3000/user/${id}/performance`
 
-        await axios.get(baseUrlUser)
-        .then((response) => {
-            performance = response.data.data
-        }).catch((error) => {                    
-            console.error('Error on GET performance:', error)
-        })
+            await axios.get(baseUrlUser)
+            .then((response) => {
+                performance = new PerformanceModel(response.data.data)
+            }).catch((error) => {                    
+                errorMessage = error.message
+            })
+        }
     }
-    return performance
+    return { performance, errorMessage }
 }
-
-
 </code></pre>
         </article>
     </section>
@@ -132,7 +170,7 @@ export const getUserPerformance = async (id) => {
 </div>
 
 <nav>
-    <h2><a href="index.html"><img src="./assets/logo.png" alt="logo"></a></h2><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverage">getUserAverage</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li></ul>
+    <h2><a href="index.html"><img src="./assets/logo.png" alt="logo"></a></h2><h3>Classes</h3><ul><li><a href="ActivityModel.html">ActivityModel</a></li><li><a href="AverageModel.html">AverageModel</a></li><li><a href="PerformanceModel.html">PerformanceModel</a></li><li><a href="UserModel.html">UserModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AsideNav">AsideNav</a></li><li><a href="global.html#CardInfos">CardInfos</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyBarChart">DailyBarChart</a></li><li><a href="global.html#DailyBarChartCursor">DailyBarChartCursor</a></li><li><a href="global.html#DailyBarChartLegend">DailyBarChartLegend</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Error404">Error404</a></li><li><a href="global.html#HeaderDashboard">HeaderDashboard</a></li><li><a href="global.html#HeaderNav">HeaderNav</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Logo">Logo</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#ScoreBarChart">ScoreBarChart</a></li><li><a href="global.html#SimpleLineChart">SimpleLineChart</a></li><li><a href="global.html#SimpleLineCursor">SimpleLineCursor</a></li><li><a href="global.html#SimpleLineTooltip">SimpleLineTooltip</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverage">getUserAverage</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#isMock">isMock</a></li></ul>
 </nav>
 
 <br class="clear">
